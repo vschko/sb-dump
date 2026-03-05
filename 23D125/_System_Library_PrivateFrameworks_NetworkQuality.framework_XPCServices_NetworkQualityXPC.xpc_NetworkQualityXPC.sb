@@ -1,0 +1,12 @@
+(version 1)
+(allow default)
+(deny mach-lookup
+	(require-all
+		(require-not (global-name "com.apple.system.notification_center"))
+		(require-not (global-name "com.apple.logd"))
+		(global-name "com.apple.cfprefsd.daemon")
+		(global-name "com.apple.cfprefsd.daemon.system")))
+(allow (with no-sandbox) process-exec*)
+(allow (with no-sandbox) process-exec-interpreter)
+(deny system-kas-info)
+(deny storage-class-map)

@@ -1,0 +1,11 @@
+(version 1)
+(allow default)
+(deny mach-lookup
+	(xpc-service-name-regex #".+")
+	(require-all
+		(debug-mode)
+		(global-name "com.apple.dt.testmanagerd.uiprocess")))
+(allow (with no-sandbox) process-exec*)
+(allow (with no-sandbox) process-exec-interpreter)
+(deny system-kas-info)
+(deny storage-class-map)

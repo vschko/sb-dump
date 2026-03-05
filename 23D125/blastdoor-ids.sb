@@ -1,0 +1,92 @@
+(version 1)
+(deny default)
+(allow consume-extension)
+(deny (with no-report) dynamic-code-generation)
+(allow file-lock)
+(allow file-read*
+	(literal "/private/var/preferences/Logging/com.apple.diagnosticd.filter.plist")
+	(require-all
+		(literal "/private/var")
+		(require-any (subpath "/usr/standalone/firmware")
+(subpath "/private/xarts")
+(subpath "/AppleInternal/Library/VideoCodecs"))
+		(subpath "/private/var/wireless/baseband_data")
+		(subpath "/private/var/hardware")
+		(literal "/dev")
+		(subpath "/private/var/MobileSoftwareUpdate")
+		(require-any
+			(literal "/dev/null")
+			(literal "/private")
+			(require-any (literal "/private/preboot/cryptex1/current/SystemVersion.plist")
+(literal "/private/preboot/cryptex1/current/RestoreVersion.plist"))
+			(literal "/dev/urandom")
+			(literal "/private/etc/passwd")
+			(literal "/private/etc/services")
+			(require-any (literal "/private/etc/group")
+(literal "/private/etc/protocols"))
+			(require-any (literal "/System")
+(literal "/private/preboot"))
+			(require-any (subpath "/private/preboot/Cryptexes")
+(subpath "/System/Cryptexes"))
+			(literal "/dev/zero")
+			(extension com.apple.sandbox.executable)
+			(literal "/private/etc/fstab")
+			(literal "/private/etc/hosts")
+			(literal "/")
+			(literal "/dev/random")
+			(require-all
+				(file-mode #o0004)
+				(require-any
+					(subpath "/usr/lib")
+					(subpath "/private/var/db/timezone")
+					(subpath "/usr/share")
+					(subpath "/System"))))))
+(allow file-read-metadata
+	(subpath "/Library/Preferences")
+	(require-all
+		(require-not (literal "/private/var/run/syslog"))
+		(require-any
+			(subpath "/private/var/db/timezone")
+			(literal "/tmp")
+			(literal "/private/etc/localtime")
+			(require-any (literal "/etc")
+(literal "/var")))))
+(allow file-test-existence)
+(deny (with no-report) iokit-get-properties)
+(deny (with no-report) iokit-open-user-client)
+(deny (with no-report) iokit-open-service)
+(allowNone mach-bootstrap)
+(allow mach-task-exception-port-set)
+(allow process-codesigning)
+(allow process-info-codesignature)
+(allow process-info-sandbox-container)
+(allow process-iopolicy*)
+(allow process-iopolicy-get)
+(allow process-iopolicy-set)
+(allow sandbox-check)
+(allow syscall-unix
+	(syscall-number-bitmask-regex exit | read | write | open | sys_close | unlink | chmod | chown | getfsstat | getpid | getuid | geteuid | sendmsg | access | chflags | fchflags | kill | sys_crossarch_trap | sys_dup | getegid | sigaction | sigprocmask | sigpending | sigaltstack | ioctl | readlink | umask | munmap | mprotect | madvise | sys_fcntl | socket | connect | sigsuspend | gettimeofday | getrusage | readv | writev | fchown | fchmod | sendto | mkdir | rmdir | utimes | futimes | pread | pwrite | statfs | fstatfs | csops | csops_audittoken | kdebug_typefilter | kdebug_trace_string | kdebug_trace64 | sigreturn | stat | sys_fstat | lstat | pathconf | getrlimit | setrlimit | mmap | lseek | sysctl | getattrlist | fsetattrlist | setxattr | fsetxattr | removexattr | fremovexattr | shm_open | sys_sysctlbyname | stat_extended | lstat_extended | sys_fstat_extended | chmod_extended | fchmod_extended | gettid | mkdir_extended | shared_region_check_np | psynch_rw_longrdlock | psynch_rw_yieldwrlock | psynch_rw_downgrade | psynch_rw_upgrade | psynch_mutexwait | psynch_mutexdrop | psynch_cvbroad | psynch_cvwait | psynch_rw_unlock2 | process_policy | issetugid | __pthread_sigmask | __sigwait | __disable_threadsignal | proc_info | stat64 | sys_fstat64 | lstat64 | stat64_extended | lstat64_extended | sys_fstat64_extended | getdirentries64 | statfs64 | fstatfs64 | getfsstat64 | bsdthread_create | bsdthread_terminate | kevent | lchown | bsdthread_register | workq_open | workq_kernreturn | kevent64 | kevent_qos | kevent_id | __mac_syscall | read_nocancel | write_nocancel | open_nocancel | sys_close_nocancel | sendmsg_nocancel | sys_fcntl_nocancel | sigsuspend_nocancel | readv_nocancel | writev_nocancel | sendto_nocancel | pread_nocancel | pwrite_nocancel | __sigwait_nocancel | __semwait_signal_nocancel | fsgetpath | memorystatus_control | guarded_close_np | proc_rlimit_control | getattrlistbulk | openat | openat_nocancel | fchmodat | fchownat | fstatat | fstatat64 | unlinkat | mkdirat | bsdthread_ctl | csrctl | mremap_encrypted | getentropy | sys_ulock_wait | sys_ulock_wake | abort_with_payload | setattrlistat | os_fault_with_payload | objc_bp_assist_cfg_np | shared_region_map_and_slide_2_np | sys_preadv | sys_pwritev | sys_preadv_nocancel | sys_pwritev_nocancel | sys_ulock_wait2 | map_with_linking_np)
+	(require-all
+		(require-not (syscall-number necp_open))
+		(require-not (syscall-number necp_client_action))
+		(require-any
+			(syscall-number psynch_cvclrprepost)
+			(require-all
+				(state-flag UNSUPPORTED)
+				(require-any
+					(syscall-number getgid)
+					(syscall-number psynch_rw_wrlock)
+					(syscall-number psynch_rw_unlock)
+					(syscall-number psynch_rw_rdlock))))))
+(allow syscall-mach
+	(machtrap-number-bitmask-regex MSC__kernelrpc_mach_vm_purgable_control_trap | machtrap_number_9 | MSC__kernelrpc_mach_vm_purgable_control_trap | machtrap_number_17 | MSC__kernelrpc_mach_port_mod_refs_trap | MSC__kernelrpc_mach_port_deallocate_trap | MSC__kernelrpc_mach_port_mod_refs_trap | MSC_thread_self_trap | MSC_thread_self_trap | MSC_thread_self_trap | MSC_semaphore_signal_all_trap | MSC_semaphore_signal_trap | MSC_semaphore_signal_trap | MSC_mach_generate_activity_id | MSC__kernelrpc_mach_port_unguard_trap | MSC__kernelrpc_mach_port_unguard_trap | MSC_macx_swapoff | MSC_pfz_exit | machtrap_number_65 | machtrap_number_73 | machtrap_number_75 | MSC_mach_wait_until | MSC_mach_wait_until))
+(allow syscall-mig
+	(cc 3a3e 6f94 7e9c)
+	(require-all
+		(kernel-mig-routine 326)
+		(state-flag UNSUPPORTED)))
+(allow sysctl-read)
+(allow system-fcntl
+	(fcntl-command-bitmask-regex fnctl_number_49 | fnctl_number_98 | fnctl_number_97))
+(allow system-mac-syscall)
+(allow process-exec-update-label)

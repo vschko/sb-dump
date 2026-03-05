@@ -1,0 +1,73 @@
+(version 1)
+(allow default)
+(deny file-ioctl
+	(require-not (ioctl-command-regex [UNSUPPORTED](_IO "t" 16))))
+(deny generic-issue-extension)
+(deny iokit-issue-extension)
+(deny iokit-open-service
+	(require-not (iokit-user-client-class "IOSurfaceRoot")))
+(deny iokit-set-properties)
+(deny ipc*)
+(deny ipc-posix*)
+(deny ipc-posix-sem*)
+(deny ipc-posix-sem-create)
+(deny ipc-posix-sem-open)
+(deny ipc-posix-sem-post)
+(deny ipc-posix-sem-unlink)
+(deny ipc-posix-sem-wait)
+(deny ipc-posix-shm*)
+(deny ipc-posix-shm-read-data)
+(deny ipc-posix-shm-write*)
+(deny ipc-posix-shm-write-create)
+(deny ipc-posix-shm-write-data)
+(deny ipc-posix-shm-write-unlink)
+(deny ipc-sysv*)
+(deny ipc-sysv-msg)
+(deny ipc-sysv-sem)
+(deny ipc-sysv-shm)
+(deny job-creation)
+(deny mach-issue-extension)
+(deny mach-lookup
+	(require-not (global-name "com.apple.sandboxd")))
+(deny necp-client-open)
+(deny process-exec*)
+(deny process-exec-interpreter)
+(deny syscall-unix
+	(require-all
+		(require-not (syscall-number-bitmask-regex exit | open | getfsstat | getpid | getuid | geteuid | sys_crossarch_trap | sys_dup | getegid | getgid | mprotect | sys_fcntl | mkdir | pread | kdebug_typefilter | kdebug_trace_string | kdebug_trace64 | kdebug_trace | sysctl | fsctl | sys_sysctlbyname | gettid | shared_region_check_np | proc_info | getfsstat64 | __mac_syscall | sys_fcntl_nocancel | pread_nocancel | fsgetpath | memorystatus_control | openat | fstatat | fstatat64 | abort_with_payload | memorystatus_available_memory | map_with_linking_np))
+		(require-any
+			(syscall-number sigaltstack)
+			(require-all
+				(syscall-number openat)
+				(syscall-number fstatat)
+				(syscall-number open)
+				(syscall-number sys_crossarch_trap)
+				(syscall-number memorystatus_control)
+				(syscall-number fstatat64)
+				(syscall-number sys_dup)
+				(syscall-number __mac_syscall)
+				(syscall-number getfsstat64)
+				(syscall-number map_with_linking_np)
+				(syscall-number getfsstat)))))
+(deny syscall-mach
+	(require-not (machtrap-number-bitmask-regex machtrap_number_9 | machtrap_number_9 | MSC__kernelrpc_mach_vm_purgable_control_trap | MSC__kernelrpc_mach_port_deallocate_trap | MSC__kernelrpc_mach_port_destruct_trap | MSC__kernelrpc_mach_port_destruct_trap | MSC_thread_self_trap | MSC__kernelrpc_mach_port_unguard_trap | MSC__kernelrpc_mach_port_unguard_trap | MSC_mach_wait_until)))
+(deny syscall-mig
+	(require-not (cc 2469 a523 8e61)))
+(deny sysctl-write
+	(require-not (sysctl-name "kern.threadname")))
+(deny system-fcntl
+	(require-not (fcntl-command-bitmask-regex F_UNLCK | fnctl_number_49 | F_SETLKW64 | fnctl_number_98 | fnctl_number_97)))
+(deny system-fsctl
+	(require-not (fsctl-command-regex [UNSUPPORTED](_IO "A" 1))))
+(deny system-kas-info)
+(deny system-mac-syscall
+	(mac-syscall-number 90)
+	(mac-policy-name "AMFI")
+	(require-all
+		(mac-policy-name "Sandbox")
+		(require-not (mac-syscall-number 3))
+		(mac-syscall-number 67)
+		(mac-syscall-number 2)))
+(deny system-necp-client-action
+	(require-not (necp-client-action-regex [UNSUPPORTED])))
+(deny storage-class-map)

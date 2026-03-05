@@ -1,0 +1,273 @@
+(version 1)
+(deny default)
+(allow consume-extension)
+(deny (with no-report) dynamic-code-generation)
+(allow file-clone
+	(require-all
+		(extension com.apple.blastdoor.read-write)
+		(require-any
+			(require-any (subpath "/private/var/tmp/com.apple.messages/PassPreview")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.messages/PassPreview"))
+			(require-any (subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.messages/Wallpapers")
+(subpath "/private/var/tmp/com.apple.messages/Wallpapers")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/tmp/com.apple.FinanceUIService/?"))
+			(require-all
+				(literal "/private/var/")
+				(require-any (subpath-prefix "${HOME}")
+(subpath-prefix "${FRONT_USER_HOME}"))
+				(regex #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/" #"^/private/var/euser[0-9]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/euser[0-9]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/" #"^/private/var/[-0-9A-F]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/[-0-9A-F]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/" #"^/private/var/Users/[^/]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/Users/[^/]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/"))))
+	(require-all
+		(extension com.apple.app-sandbox.read-write)
+		(require-any
+			(require-any (subpath "/private/var/tmp/com.apple.messages/PassPreview")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.messages/PassPreview"))
+			(require-any (subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.messages/Wallpapers")
+(subpath "/private/var/tmp/com.apple.messages/Wallpapers")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/tmp/com.apple.FinanceUIService/?"))
+			(require-all
+				(literal "/private/var/")
+				(require-any (subpath-prefix "${HOME}")
+(subpath-prefix "${FRONT_USER_HOME}"))
+				(regex #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/" #"^/private/var/euser[0-9]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/euser[0-9]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/" #"^/private/var/[-0-9A-F]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/[-0-9A-F]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/" #"^/private/var/Users/[^/]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/Users/[^/]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/")))))
+(allow file-lock)
+(allow file-read*
+	(require-any (literal "/private/var/Managed Preferences/mobile/com.apple.UIKit.plist")
+(literal-prefix "${FRONT_USER_HOME}/Library/Preferences/com.apple.UIKit.plist"))
+	(literal "/private/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache/Library/Caches/com.apple.MobileGestalt.plist")
+	(literal "/private/var/Managed Preferences/mobile/.GlobalPreferences.plist")
+	(literal "/private/var/Managed Preferences/mobile/.GlobalPreferences_m.plist")
+	(literal-prefix "${FRONT_USER_HOME}/Library/Preferences/.GlobalPreferences.plist")
+	(require-any (literal "/private/var/Managed Preferences/mobile/kCFPreferencesAnyApplication.plist")
+(literal "/private/var/Managed Preferences/mobile/com.apple.avfoundation.plist")
+(literal "/private/var/Managed Preferences/mobile/com.apple.corevideo.plist")
+(literal "/private/var/Managed Preferences/mobile/com.apple.coremedia.plist")
+(literal "/private/var/Managed Preferences/mobile/com.apple.coreaudio.plist")
+(literal-prefix "${FRONT_USER_HOME}/Library/Preferences/kCFPreferencesAnyApplication.plist")
+(literal-prefix "${FRONT_USER_HOME}/Library/Preferences/com.apple.avfoundation.plist")
+(literal-prefix "${FRONT_USER_HOME}/Library/Preferences/com.apple.coreaudio.plist")
+(literal-prefix "${FRONT_USER_HOME}/Library/Preferences/com.apple.corevideo.plist")
+(literal-prefix "${FRONT_USER_HOME}/Library/Preferences/com.apple.coremedia.plist"))
+	(literal-prefix "${FRONT_USER_HOME}/Library/Preferences/.GlobalPreferences_m.plist")
+	(require-all
+		(extension com.apple.blastdoor.read-write)
+		(require-any
+			(require-any (subpath "/private/var/tmp/com.apple.messages/PassPreview")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.messages/PassPreview"))
+			(require-any (subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.messages/Wallpapers")
+(subpath "/private/var/tmp/com.apple.messages/Wallpapers")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/tmp/com.apple.FinanceUIService/?"))
+			(require-all
+				(literal "/private/var/")
+				(require-any (subpath-prefix "${HOME}")
+(subpath-prefix "${FRONT_USER_HOME}"))
+				(regex #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/" #"^/private/var/euser[0-9]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/euser[0-9]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/" #"^/private/var/[-0-9A-F]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/[-0-9A-F]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/" #"^/private/var/Users/[^/]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/Users/[^/]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/"))))
+	(require-all
+		(extension com.apple.app-sandbox.read-write)
+		(require-any
+			(require-any (subpath "/private/var/tmp/com.apple.messages/PassPreview")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.messages/PassPreview"))
+			(require-any (subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.messages/Wallpapers")
+(subpath "/private/var/tmp/com.apple.messages/Wallpapers")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/tmp/com.apple.FinanceUIService/?"))
+			(require-all
+				(literal "/private/var/")
+				(require-any (subpath-prefix "${HOME}")
+(subpath-prefix "${FRONT_USER_HOME}"))
+				(regex #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/" #"^/private/var/euser[0-9]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/euser[0-9]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/" #"^/private/var/[-0-9A-F]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/[-0-9A-F]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/" #"^/private/var/Users/[^/]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService$" #"^/private/var/Users/[^/]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com[.]apple[.]FinanceUIService/"))))
+	(require-all
+		(subpath "/private/var/tmp/com.apple.TelephonyUtilities/SharePlayActivityImages")
+		(require-any
+			(extension com.apple.app-sandbox.read)
+			(extension com.apple.blastdoor.read)))
+	(require-all
+		(require-any (subpath "/private/var/tmp/com.apple.identityservicesd")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.identityservicesd"))
+		(require-any
+			(extension com.apple.app-sandbox.read)
+			(extension com.apple.blastdoor.read)))
+	(require-all
+		(subpath "/private/var/tmp/com.apple.messages")
+		(require-any
+			(extension com.apple.app-sandbox.read)
+			(extension com.apple.blastdoor.read)))
+	(require-all
+		(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/tmp/com[UNSUPPORTED]apple[UNSUPPORTED]MobileSMS/?")
+		(require-any
+			(extension com.apple.app-sandbox.read)
+			(extension com.apple.blastdoor.read)))
+	(require-all
+		(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.messages")
+		(require-any
+			(extension com.apple.app-sandbox.read)
+			(extension com.apple.blastdoor.read)))
+	(require-all
+		(require-any (subpath "/private/var/tmp/com.apple.CallKit.CallDirectory/LiveCallerID")
+(subpath "/private/var/tmp/com.apple.facetimemessagestored/IncomingVideoVoiceMail")
+(subpath-prefix "${HOME}/Library/Caches/com.apple.businessservicesd/temp")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.CallKit.CallDirectory/LiveCallerID")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.facetimemessagestored/IncomingVideoVoiceMail"))
+		(require-any
+			(extension com.apple.app-sandbox.read)
+			(extension com.apple.blastdoor.read)))
+	(require-all
+		(subpath "/private/var/tmp/com.apple.imtransferagent")
+		(require-any
+			(extension com.apple.app-sandbox.read)
+			(extension com.apple.blastdoor.read)))
+	(require-all
+		(require-any (subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.TelephonyUtilities/SharePlayActivityImages")
+(subpath-prefix "${HOME}/Media/PhotoData/UBF/scopes/syndication/originals")
+(subpath-prefix "${HOME}/Library/Photos/Libraries/Syndication.photoslibrary/scopes/syndication/originals"))
+		(require-any
+			(extension com.apple.app-sandbox.read)
+			(extension com.apple.blastdoor.read)))
+	(require-all
+		(subpath-prefix "${HOME}/Library/SMS")
+		(require-any
+			(extension com.apple.app-sandbox.read)
+			(extension com.apple.blastdoor.read)))
+	(require-all
+		(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.imtransferagent")
+		(require-any
+			(extension com.apple.app-sandbox.read)
+			(extension com.apple.blastdoor.read)))
+	(require-all
+		(literal "/private/var/")
+		(regex #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/tmp/com.apple.MobileSMS/" #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/tmp/com.apple.MobileSMS$" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/tmp/com.apple.MobileSMS/" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/tmp/com.apple.MobileSMS$" #"^/private/var/euser[0-9]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com.apple.MobileSMS/" #"^/private/var/euser[0-9]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com.apple.MobileSMS$" #"^/private/var/[-0-9A-F]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com.apple.MobileSMS/" #"^/private/var/[-0-9A-F]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com.apple.MobileSMS$" #"^/private/var/Users/[^/]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com.apple.MobileSMS/" #"^/private/var/Users/[^/]+/Containers/(Temp/)?Data/[^/]+/[^/]+/tmp/com.apple.MobileSMS$")
+		(require-any
+			(require-all
+				(require-any (subpath-prefix "${HOME}")
+(subpath-prefix "${FRONT_USER_HOME}"))
+				(require-any
+					(extension com.apple.app-sandbox.read)
+					(extension com.apple.blastdoor.read)))
+			(require-all
+				(subpath "/private/var/wireless/baseband_data")
+				(subpath "/private/var/hardware")
+				(literal "/dev")
+				(subpath "/private/var/MobileSoftwareUpdate")
+				(require-any
+					(literal "/dev/null")
+					(literal "/private")
+					(require-any (literal "/private/preboot/cryptex1/current/SystemVersion.plist")
+(literal "/private/preboot/cryptex1/current/RestoreVersion.plist"))
+					(literal "/dev/urandom")
+					(literal "/private/etc/passwd")
+					(literal "/private/etc/services")
+					(require-any (literal "/private/etc/group")
+(literal "/private/etc/protocols"))
+					(require-any (literal "/System")
+(literal "/private/preboot"))
+					(require-any (subpath "/private/preboot/Cryptexes")
+(subpath "/System/Cryptexes"))
+					(literal "/dev/zero")
+					(extension com.apple.sandbox.executable)
+					(literal "/private/etc/fstab")
+					(literal "/private/etc/hosts")
+					(literal "/")
+					(literal "/dev/random")
+					(require-all
+						(file-mode #o0004)
+						(require-any
+							(subpath "/usr/lib")
+							(subpath "/private/var/db/timezone")
+							(subpath "/usr/share")
+							(subpath "/System")))))))
+	(require-all
+		(debug-mode)
+		(subpath "/AppleInternal/Library/Messages/BlastDoorTestData")
+		(require-any
+			(extension com.apple.app-sandbox.read)
+			(extension com.apple.blastdoor.read))))
+(allow file-test-existence)
+(allow file-write-data
+	(literal "/dev/dtracehelper")
+	(literal "/dev/null")
+	(literal "/dev/zero"))
+(allow file-write-flags
+	(require-all
+		(require-any (subpath "/private/var/tmp/com.apple.messages/PassPreview")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.messages/PassPreview"))
+		(require-not (extension com.apple.blastdoor.read-write))
+		(extension com.apple.app-sandbox.read-write)))
+(deny (with no-report) iokit-open-user-client)
+(deny (with no-report) iokit-open-service)
+(allowNone mach-bootstrap)
+(allow mach-derive-port)
+(allow mach-task-exception-port-set)
+(allow process-codesigning)
+(deny (with no-report) process-info-codesignature)
+(allow process-info-sandbox-container)
+(allow process-iopolicy*)
+(allow process-iopolicy-get)
+(allow process-iopolicy-set)
+(allow process-legacy-codesigning-entitlements-blob-get)
+(allow process-legacy-codesigning-entitlements-der-blob-get)
+(allow process-legacy-codesigning-status-get)
+(allow sandbox-check)
+(allow syscall-unix
+	(syscall-number-bitmask-regex exit | write | open | sys_close | unlink | chmod | chown | getfsstat | geteuid | access | chflags | fchflags | kill | sys_crossarch_trap | sys_dup | getegid | getgid | sigprocmask | ioctl | sys_fcntl | connect | writev | fchown | fchmod | utimes | futimes | pwrite | csops | csops_audittoken | sysctl | getattrlist | setxattr | fsetxattr | removexattr | fremovexattr | shm_open | sys_sysctlbyname | chmod_extended | fchmod_extended | psynch_cvwait | __pthread_kill | __pthread_sigmask | __disable_threadsignal | proc_info | sys_fstat64 | getdirentries64 | fstatfs64 | getfsstat64 | bsdthread_create | bsdthread_terminate | lchown | bsdthread_register | __mac_syscall | write_nocancel | open_nocancel | sys_close_nocancel | sys_fcntl_nocancel | sigsuspend_nocancel | writev_nocancel | pwrite_nocancel | __semwait_signal_nocancel | fsgetpath | memorystatus_control | clonefileat | openat | openat_nocancel | fchmodat | fchownat | fstatat | fstatat64 | unlinkat | bsdthread_ctl | getentropy | sys_ulock_wait | sys_ulock_wake | fclonefileat | abort_with_payload | shared_region_map_and_slide_2_np | sys_pwritev | sys_pwritev_nocancel | sys_ulock_wait2 | map_with_linking_np)
+	(require-all
+		(require-not (syscall-number necp_open))
+		(require-not (syscall-number necp_client_action))
+		(require-any
+			(syscall-number shared_region_map_and_slide_2_np)
+			(syscall-number sigprocmask)
+			(syscall-number sigsuspend_nocancel)
+			(syscall-number psynch_cvwait)
+			(require-all
+				(syscall-number sys_dup2)
+				(state-flag UNSUPPORTED))
+			(require-all
+				(state-flag UNSUPPORTED)
+				(syscall-number-bitmask-regex read | getuid | pipe | sigprocmask | readlink | umask | munmap | mprotect | madvise | socket | gettimeofday | getrusage | rename | mkdir | rmdir | pread | quotactl | kdebug_typefilter | kdebug_trace_string | kdebug_trace64 | pathconf | sys_fpathconf | getrlimit | setrlimit | mmap | lseek | setattrlist | fsetattrlist | getxattr | listxattr | flistxattr | ffsctl | gettid | psynch_rw_longrdlock | psynch_rw_yieldwrlock | psynch_rw_downgrade | psynch_rw_upgrade | psynch_mutexwait | psynch_mutexdrop | psynch_cvbroad | psynch_cvsignal | psynch_cvwait | psynch_rw_rdlock | psynch_rw_wrlock | psynch_rw_unlock | psynch_rw_unlock2 | psynch_cvclrprepost | process_policy | issetugid | __semwait_signal | stat64 | lstat64 | stat64_extended | lstat64_extended | sys_fstat64_extended | statfs64 | __pthread_chdir | __pthread_fchdir | workq_open | workq_kernreturn | kevent_qos | kevent_id | read_nocancel | sigsuspend_nocancel | change_fdguard_np | getattrlistbulk | faccessat | mkdirat | __channel_open | setattrlistat | os_fault_with_payload | memorystatus_available_memory | objc_bp_assist_cfg_np | shared_region_map_and_slide_2_np))
+			(require-all
+				(syscall-number-bitmask-regex read | getpid | getuid | sigaction | sigaltstack | readlink | munmap | mprotect | madvise | socket | gettimeofday | mkdir | pread | kdebug_typefilter | kdebug_trace_string | kdebug_trace64 | pathconf | getrlimit | setrlimit | mmap | lseek | getxattr | gettid | shared_region_check_np | psynch_mutexwait | psynch_mutexdrop | psynch_cvbroad | psynch_cvsignal | psynch_rw_rdlock | psynch_rw_wrlock | psynch_rw_unlock | psynch_cvclrprepost | process_policy | issetugid | stat64 | lstat64 | stat64_extended | statfs64 | workq_open | workq_kernreturn | kevent_qos | kevent_id | read_nocancel | os_fault_with_payload | kqueue_workloop_ctl | objc_bp_assist_cfg_np | map_with_linking_np)
+				(require-any
+					(state-flag UNSUPPORTED)
+					(syscall-number getfsstat64)
+					(syscall-number map_with_linking_np)
+					(syscall-number openat)
+					(syscall-number fstatat)
+					(syscall-number getfsstat)
+					(syscall-number open)
+					(syscall-number sys_crossarch_trap)
+					(syscall-number memorystatus_control)
+					(syscall-number fstatat64)
+					(syscall-number __mac_syscall)))
+			(require-all
+				(syscall-number iopolicysys)
+				(require-any
+					(syscall-number sys_dup)
+					(syscall-number getfsstat64)
+					(syscall-number map_with_linking_np)
+					(syscall-number openat)
+					(syscall-number fstatat)
+					(syscall-number getfsstat)
+					(syscall-number open)
+					(syscall-number sys_crossarch_trap)
+					(syscall-number memorystatus_control)
+					(syscall-number fstatat64)
+					(syscall-number __mac_syscall))))))
+(allow syscall-mach
+	(machtrap-number-bitmask-regex MSC__kernelrpc_mach_vm_purgable_control_trap | machtrap_number_9 | MSC__kernelrpc_mach_vm_purgable_control_trap | machtrap_number_17 | MSC__kernelrpc_mach_port_mod_refs_trap | MSC__kernelrpc_mach_port_deallocate_trap | machtrap_number_17 | MSC_thread_self_trap | MSC__kernelrpc_mach_port_destruct_trap | MSC_thread_self_trap | MSC_semaphore_signal_all_trap | MSC_semaphore_signal_trap | MSC_semaphore_signal_trap | MSC__kernelrpc_mach_port_unguard_trap | MSC__kernelrpc_mach_port_unguard_trap | MSC__kernelrpc_mach_port_unguard_trap | MSC_macx_swapoff | MSC_pfz_exit | MSC_pfz_exit | machtrap_number_65 | machtrap_number_75 | MSC_mach_wait_until | MSC_mach_wait_until | MSC_mach_timebase_info_trap))
+(allow syscall-mig
+	(cc 3055 6f66 7e93)
+	(require-all
+		(kernel-mig-routine 132)
+		(kernel-mig-routine 131)
+		(require-any
+			(cc 3055 9c6a 7e96)
+			(require-all
+				(kernel-mig-routine 332)
+				(kernel-mig-routine 153)
+				(kernel-mig-routine 315)
+				(kernel-mig-routine 246)
+				(kernel-mig-routine 245)
+				(kernel-mig-routine 240)
+				(kernel-mig-routine 326)
+				(state-flag UNSUPPORTED)))))
+(allow system-fcntl
+	(fcntl-command-bitmask-regex F_UNLCK | F_RDLCK | fnctl_number_49 | fnctl_number_49 | fnctl_number_58 | F_SETLK64 | fnctl_number_73 | fnctl_number_98 | fnctl_number_97 | fnctl_number_98))
+(allow system-mac-syscall)
+(allow process-exec-update-label)

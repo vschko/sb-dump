@@ -1,0 +1,49 @@
+(version 1)
+(allow default)
+(deny generic-issue-extension)
+(deny iokit-issue-extension)
+(deny iokit-open-user-client
+	(require-all
+		(require-not (iokit-user-client-class "IOUserUserClient"))
+		(require-not (iokit-user-client-class "IOMobileFramebufferUserClient"))
+		(require-not (iokit-user-client-class "AppleBCMWLANUserClient"))))
+(deny iokit-open-service
+	(require-all
+		(require-not (iokit-user-client-class "AppleBCMWLANCore"))
+		(require-not (iokit-user-client-class "IOUserService"))))
+(deny iokit-set-properties
+	(require-not (iokit-property "PlatformConfig")))
+(deny ipc*)
+(deny ipc-posix*)
+(deny ipc-posix-sem*)
+(deny ipc-posix-sem-create)
+(deny ipc-posix-sem-open)
+(deny ipc-posix-sem-post)
+(deny ipc-posix-sem-unlink)
+(deny ipc-posix-sem-wait)
+(deny ipc-posix-shm*)
+(deny ipc-posix-shm-read-data)
+(deny ipc-posix-shm-write*)
+(deny ipc-posix-shm-write-create)
+(deny ipc-posix-shm-write-data)
+(deny ipc-posix-shm-write-unlink)
+(deny ipc-sysv*)
+(deny ipc-sysv-msg)
+(deny ipc-sysv-sem)
+(deny ipc-sysv-shm)
+(deny job-creation)
+(deny mach-issue-extension)
+(deny process-exec*)
+(deny process-exec-interpreter)
+(deny socket-ioctl)
+(deny syscall-unix
+	(require-not (syscall-number-bitmask-regex exit | read | write | open | sys_close | wait4 | link | unlink | sys_chdir | sys_fchdir | chmod | chown | getfsstat | getpid | getuid | geteuid | recvmsg | sendmsg | recvfrom | accept | getpeername | getsockname | access | chflags | fchflags | sync | kill | sys_crossarch_trap | getppid | sys_dup | pipe | getegid | sigaction | getgid | sigprocmask | getlogin | sigpending | sigaltstack | ioctl | symlink | readlink | umask | msync | munmap | mprotect | madvise | mincore | getgroups | sys_getdtablesize | sys_dup2 | sys_fcntl | select | fsync | socket | connect | getpriority | bind | setsockopt | listen | sigsuspend | gettimeofday | getrusage | getsockopt | readv | writev | fchown | fchmod | rename | sys_flock | sendto | shutdown | socketpair | mkdir | rmdir | utimes | pread | pwrite | quotactl | csops | csops_audittoken | kdebug_typefilter | kdebug_trace_string | kdebug_trace64 | kdebug_trace | seteuid | sigreturn | stat | sys_fstat | lstat | pathconf | sys_fpathconf | getrlimit | setrlimit | mmap | lseek | truncate | ftruncate | sysctl | mlock | open_dprotected_np | getattrlist | setattrlist | fgetattrlist | fsetattrlist | getxattr | fgetxattr | setxattr | fsetxattr | removexattr | fremovexattr | listxattr | flistxattr | fsctl | posix_spawn | ffsctl | shm_open | shm_unlink | sem_open | sem_close | sys_sysctlbyname | stat_extended | lstat_extended | sys_fstat_extended | chmod_extended | fchmod_extended | access_extended | gettid | shared_region_check_np | psynch_rw_longrdlock | psynch_rw_yieldwrlock | psynch_rw_downgrade | psynch_rw_upgrade | psynch_mutexwait | psynch_mutexdrop | psynch_cvbroad | psynch_cvsignal | psynch_cvwait | psynch_rw_rdlock | psynch_rw_wrlock | psynch_rw_unlock | psynch_rw_unlock2 | psynch_cvclrprepost | aio_suspend | iopolicysys | process_policy | issetugid | __pthread_kill | __pthread_sigmask | __sigwait | __disable_threadsignal | __pthread_canceled | __semwait_signal | proc_info | stat64 | sys_fstat64 | lstat64 | stat64_extended | lstat64_extended | sys_fstat64_extended | getdirentries64 | statfs64 | fstatfs64 | getfsstat64 | __pthread_chdir | __pthread_fchdir | getauid | bsdthread_create | bsdthread_terminate | kqueue | kevent | lchown | bsdthread_register | workq_open | workq_kernreturn | kevent64 | kevent_qos | kevent_id | __mac_syscall | pselect | pselect_nocancel | read_nocancel | write_nocancel | open_nocancel | sys_close_nocancel | wait4_nocancel | recvmsg_nocancel | sendmsg_nocancel | recvfrom_nocancel | accept_nocancel | msync_nocancel | sys_fcntl_nocancel | select_nocancel | fsync_nocancel | connect_nocancel | sigsuspend_nocancel | readv_nocancel | writev_nocancel | sendto_nocancel | pread_nocancel | pwrite_nocancel | __sigwait_nocancel | __semwait_signal_nocancel | fsgetpath | sys_fileport_makeport | sys_fileport_makefd | memorystatus_control | guarded_open_np | guarded_close_np | change_fdguard_np | proc_rlimit_control | connectx | getattrlistbulk | clonefileat | openat | openat_nocancel | renameat | faccessat | fchmodat | fchownat | fstatat | fstatat64 | unlinkat | mkdirat | bsdthread_ctl | thread_selfusage | guarded_open_dprotected_np | guarded_write_np | guarded_pwrite_np | renameatx_np | mremap_encrypted | persona | work_interval_ctl | getentropy | necp_open | necp_client_action | __channel_open | __channel_get_info | __channel_sync | sys_ulock_wait | sys_ulock_wake | fclonefileat | terminate_with_payload | abort_with_payload | setattrlistat | os_fault_with_payload | kqueue_workloop_ctl | memorystatus_available_memory | objc_bp_assist_cfg_np | shared_region_map_and_slide_2_np | task_read_for_pid | sys_preadv | sys_preadv_nocancel | sys_ulock_wait2 | proc_info_extended_id | map_with_linking_np)))
+(deny syscall-mach
+	(require-not (machtrap-number-bitmask-regex MSC__kernelrpc_mach_vm_purgable_control_trap | MSC__kernelrpc_mach_vm_purgable_control_trap | MSC__kernelrpc_mach_vm_purgable_control_trap | machtrap_number_17 | MSC__kernelrpc_mach_port_mod_refs_trap | MSC__kernelrpc_mach_port_deallocate_trap | MSC__kernelrpc_mach_port_mod_refs_trap | MSC_thread_self_trap | MSC_thread_self_trap | MSC_thread_self_trap | MSC_mach_reply_port | MSC_semaphore_signal_all_trap | MSC_semaphore_signal_trap | MSC_semaphore_signal_trap | MSC_mach_generate_activity_id | MSC__kernelrpc_mach_port_unguard_trap | MSC__kernelrpc_mach_port_guard_trap | MSC_mach_generate_activity_id | MSC_macx_swapoff | MSC_pfz_exit | MSC_pfz_exit | machtrap_number_65 | machtrap_number_73 | machtrap_number_75 | MSC_mach_wait_until | MSC_mach_wait_until | MSC_mk_timer_create | MSC_mk_timer_create | machtrap_number_97)))
+(deny syscall-mig
+	(require-not (cc b2fb a523 01fb)))
+(deny system-fcntl
+	(require-not (fcntl-command-bitmask-regex F_WRLCK | fnctl_number_49 | fnctl_number_98 | fnctl_number_97)))
+(deny system-kas-info)
+(deny system-necp-client-action)
+(deny storage-class-map)

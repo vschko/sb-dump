@@ -1,0 +1,248 @@
+(version 1)
+(deny default)
+(allow consume-extension)
+(allow file-issue-extension
+	(require-all (require-not (literal "/System/Library/Caches/apticket.der"))
+(require-not (subpath "/System/Library/Caches/com.apple.factorydata"))
+(require-not (subpath "/System/Library/Caches/com.apple.kernelcaches"))))
+(allow file-lock)
+(allow file-map-executable
+	(subpath "/System/Library/PrivateFrameworks")
+	(subpath "/usr/lib")
+	(subpath "/System/Library/Frameworks")
+	(subpath "/System/Library")
+	(subpath "/System/Cryptexes")
+	(subpath "/private/preboot/Cryptexes"))
+(allow file-read*
+	(require-any (literal "/private/var/Managed Preferences/mobile/com.apple.UIKit.plist")
+(literal-prefix "${FRONT_USER_HOME}/Library/Preferences/com.apple.UIKit.plist"))
+	(require-any (literal "/private/var/Managed Preferences/mobile/com.apple.AppSupport.plist")
+(literal "/private/var/Managed Preferences/mobile/com.apple.Accessibility.plist")
+(literal-prefix "${FRONT_USER_HOME}/Library/Preferences/com.apple.AppSupport.plist")
+(literal-prefix "${FRONT_USER_HOME}/Library/Preferences/com.apple.Accessibility.plist"))
+	(require-all
+		(require-all (require-not (literal "/System/Library/Caches/apticket.der"))
+(require-not (subpath "/System/Library/Caches/com.apple.factorydata"))
+(require-not (subpath "/System/Library/Caches/com.apple.kernelcaches")))
+		(require-any
+			(literal "/private/etc/services")
+			(require-any (literal "/private/etc/group")
+(literal "/private/etc/protocols"))
+			(literal "/private/etc/fstab")
+			(require-any (literal "/System")
+(literal "/private/preboot"))
+			(literal "/")
+			(literal "/private/etc/hosts")
+			(subpath "/System/Cryptexes")
+			(subpath "/private/preboot/Cryptexes")
+			(literal "/dev/null")
+			(literal "/dev/zero")
+			(literal "/dev/random")
+			(literal "/dev/urandom")
+			(literal "/private")
+			(require-any (literal "/private/preboot/cryptex1/current/SystemVersion.plist")
+(literal "/private/preboot/cryptex1/current/RestoreVersion.plist"))
+			(literal "/private/etc/passwd")
+			(require-all
+				(literal "/private/var/")
+				(extension com.apple.sandbox.container)
+				(require-any
+					(require-all
+						(literal "/private/var/PersonaVolumes/")
+						(regex #"^/private/var/PersonaVolumes/[^/]+/Containers/Data/[^/]+/[^/]+/tmp/" #"^/private/var/PersonaVolumes/[^/]+/Containers/Data/[^/]+/[^/]+/tmp$" #"^/private/var/PersonaVolumes/[^/]+/Containers/Data/[^/]+/[^/]+/Library/" #"^/private/var/PersonaVolumes/[^/]+/Containers/Data/[^/]+/[^/]+/Library$" #"^/private/var/PersonaVolumes/[^/]+/Containers/Data/[^/]+/[^/]+/Documents/" #"^/private/var/PersonaVolumes/[^/]+/Containers/Data/[^/]+/[^/]+/Documents$"))
+					(require-all
+						(require-any (subpath-prefix "${HOME}")
+(subpath-prefix "${FRONT_USER_HOME}"))
+						(regex #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/tmp/" #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/tmp$" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/tmp/" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/tmp$" #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/Library/" #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/Library$" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/Library/" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/Library$" #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/Documents/" #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/Documents$" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/Documents/" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/Documents$" #"^/private/var/euser[0-9]+/Containers/(((((Temp/)?Data/[^/]+/[^/]+/tmp|Data/[^/]+/[^/]+/Library)|Temp/Data/[^/]+/[^/]+/Library)|Data/[^/]+/[^/]+/Documents)|Temp/Data/[^/]+/[^/]+/Documents)/" #"^/private/var/euser[0-9]+/Containers/(((((Temp/)?Data/[^/]+/[^/]+/tmp|Data/[^/]+/[^/]+/Library)|Temp/Data/[^/]+/[^/]+/Library)|Data/[^/]+/[^/]+/Documents)|Temp/Data/[^/]+/[^/]+/Documents)$" #"^/private/var/[-0-9A-F]+/Containers/(((((Temp/)?Data/[^/]+/[^/]+/tmp|Data/[^/]+/[^/]+/Library)|Temp/Data/[^/]+/[^/]+/Library)|Data/[^/]+/[^/]+/Documents)|Temp/Data/[^/]+/[^/]+/Documents)/" #"^/private/var/[-0-9A-F]+/Containers/(((((Temp/)?Data/[^/]+/[^/]+/tmp|Data/[^/]+/[^/]+/Library)|Temp/Data/[^/]+/[^/]+/Library)|Data/[^/]+/[^/]+/Documents)|Temp/Data/[^/]+/[^/]+/Documents)$" #"^/private/var/Users/[^/]+/Containers/(((((Temp/)?Data/[^/]+/[^/]+/tmp|Data/[^/]+/[^/]+/Library)|Temp/Data/[^/]+/[^/]+/Library)|Data/[^/]+/[^/]+/Documents)|Temp/Data/[^/]+/[^/]+/Documents)/" #"^/private/var/Users/[^/]+/Containers/(((((Temp/)?Data/[^/]+/[^/]+/tmp|Data/[^/]+/[^/]+/Library)|Temp/Data/[^/]+/[^/]+/Library)|Data/[^/]+/[^/]+/Documents)|Temp/Data/[^/]+/[^/]+/Documents)$"))))
+			(require-all
+				(file-mode #o0004)
+				(require-any
+					(subpath "/usr/lib")
+					(subpath "/private/var/db/timezone")
+					(subpath "/usr/share")
+					(subpath "/System"))))))
+(allow file-read-data
+	(subpath "/private/var/preferences/Logging")
+	(literal "/private/etc/passwd")
+	(require-any (subpath "/private/var/containers/Shared/SystemGroup/systemgroup.com.apple.mobilegestaltcache")
+(subpath "/private/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles")
+(subpath-prefix "${HOME}/Library/UserConfigurationProfiles"))
+	(subpath "/System")
+	(literal "/")
+	(subpath "/usr/share")
+	(subpath "/Library"))
+(allow file-read-metadata
+	(literal "/private/var")
+	(literal "/private/etc/passwd")
+	(subpath "/usr/lib")
+	(subpath "/private/var/db/timezone")
+	(require-any (literal-prefix "${FRONT_USER_HOME}")
+(literal-prefix "${FRONT_USER_HOME}/Library/Preferences"))
+	(subpath "/usr/standalone")
+	(literal-prefix "${HOME}")
+	(literal "/dev")
+	(literal "/private/xarts")
+	(literal "/")
+	(subpath "/Library")
+	(subpath "/usr/share")
+	(subpath "/System")
+	(require-any (literal "/etc")
+(literal "/var"))
+	(literal "/tmp")
+	(literal "/private/etc/localtime")
+	(require-all
+		(extension com.apple.sandbox.container)
+		(require-any
+			(literal)
+			(require-all
+				(literal "/private/var/")
+				(require-any (subpath-prefix "${HOME}")
+(subpath-prefix "${FRONT_USER_HOME}"))
+				(regex #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+$" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+$" #"^/private/var/euser[0-9]+/Containers/(Temp/)?Data/[^/]+/[^/]+$" #"^/private/var/[-0-9A-F]+/Containers/(Temp/)?Data/[^/]+/[^/]+$" #"^/private/var/Users/[^/]+/Containers/(Temp/)?Data/[^/]+/[^/]+$")))))
+(allow file-test-existence
+	(subpath "/usr/local"))
+(allow file-write*
+	(require-all
+		(literal "/private/var/")
+		(extension com.apple.sandbox.container)
+		(require-any
+			(require-all
+				(literal "/private/var/PersonaVolumes/")
+				(regex #"^/private/var/PersonaVolumes/[^/]+/Containers/Data/[^/]+/[^/]+/tmp/" #"^/private/var/PersonaVolumes/[^/]+/Containers/Data/[^/]+/[^/]+/tmp$" #"^/private/var/PersonaVolumes/[^/]+/Containers/Data/[^/]+/[^/]+/Library/" #"^/private/var/PersonaVolumes/[^/]+/Containers/Data/[^/]+/[^/]+/Library$" #"^/private/var/PersonaVolumes/[^/]+/Containers/Data/[^/]+/[^/]+/Documents/" #"^/private/var/PersonaVolumes/[^/]+/Containers/Data/[^/]+/[^/]+/Documents$"))
+			(require-all
+				(require-any (subpath-prefix "${HOME}")
+(subpath-prefix "${FRONT_USER_HOME}"))
+				(regex #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/tmp/" #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/tmp$" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/tmp/" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/tmp$" #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/Library/" #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/Library$" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/Library/" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/Library$" #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/Documents/" #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/Documents$" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/Documents/" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/Documents$" #"^/private/var/euser[0-9]+/Containers/(((((Temp/)?Data/[^/]+/[^/]+/tmp|Data/[^/]+/[^/]+/Library)|Temp/Data/[^/]+/[^/]+/Library)|Data/[^/]+/[^/]+/Documents)|Temp/Data/[^/]+/[^/]+/Documents)/" #"^/private/var/euser[0-9]+/Containers/(((((Temp/)?Data/[^/]+/[^/]+/tmp|Data/[^/]+/[^/]+/Library)|Temp/Data/[^/]+/[^/]+/Library)|Data/[^/]+/[^/]+/Documents)|Temp/Data/[^/]+/[^/]+/Documents)$" #"^/private/var/[-0-9A-F]+/Containers/(((((Temp/)?Data/[^/]+/[^/]+/tmp|Data/[^/]+/[^/]+/Library)|Temp/Data/[^/]+/[^/]+/Library)|Data/[^/]+/[^/]+/Documents)|Temp/Data/[^/]+/[^/]+/Documents)/" #"^/private/var/[-0-9A-F]+/Containers/(((((Temp/)?Data/[^/]+/[^/]+/tmp|Data/[^/]+/[^/]+/Library)|Temp/Data/[^/]+/[^/]+/Library)|Data/[^/]+/[^/]+/Documents)|Temp/Data/[^/]+/[^/]+/Documents)$" #"^/private/var/Users/[^/]+/Containers/(((((Temp/)?Data/[^/]+/[^/]+/tmp|Data/[^/]+/[^/]+/Library)|Temp/Data/[^/]+/[^/]+/Library)|Data/[^/]+/[^/]+/Documents)|Temp/Data/[^/]+/[^/]+/Documents)/" #"^/private/var/Users/[^/]+/Containers/(((((Temp/)?Data/[^/]+/[^/]+/tmp|Data/[^/]+/[^/]+/Library)|Temp/Data/[^/]+/[^/]+/Library)|Data/[^/]+/[^/]+/Documents)|Temp/Data/[^/]+/[^/]+/Documents)$")))))
+(allow file-write-data
+	(literal "/dev/null")
+	(literal "/dev/zero"))
+(allow iokit-get-properties
+	(require-all
+		(iokit-user-client-class "AGXAcceleratorG")
+		(require-any
+			(iokit-property "BaseAddressAlignmentRequirement")
+			(require-any (iokit-property "MetalPluginName")
+(iokit-property "MetalPluginClassName"))))
+	(require-all
+		(iokit-property "IOSurfaceAcceleratorCapabilitiesDict")
+		(iokit-user-client-class "AppleM2ScalerCSCDriver"))
+	(require-all
+		(iokit-user-client-class "AppleJPEGDriver")
+		(require-any
+			(iokit-property "AppleJPEGSupportsRSTLogging")
+			(iokit-property "AppleJPEGNumCores")
+			(iokit-property "AppleJPEGSupportsAppleInterchangeFormats")))
+	(require-all
+		(iokit-property "product-id")
+		(iokit-user-client-class "IOPlatformDevice"))
+	(require-all
+		(require-any (iokit-property "external-hdr")
+(iokit-property "compatible-app-variant"))
+		(iokit-user-client-class "IOPlatformDevice"))
+	(require-all
+		(require-any (iokit-property "thin-bezel")
+(iokit-property "large-format-phone"))
+		(iokit-user-client-class "IOPlatformDevice"))
+	(require-all
+		(require-any (iokit-property "product-description")
+(iokit-property "device-perf-memory-class")
+(iokit-property "compatible-device-fallback")
+(iokit-property "graphics-featureset-class")
+(iokit-property "graphics-featureset-fallbacks")
+(iokit-property "artwork-display-gamut")
+(iokit-property "artwork-dynamic-displaymode")
+(iokit-property "artwork-device-idiom")
+(iokit-property "artwork-device-subtype"))
+		(iokit-user-client-class "IOPlatformDevice"))
+	(require-all
+		(iokit-property "device-colors")
+		(iokit-user-client-class "IOPlatformDevice"))
+	(require-all
+		(iokit-property "display-corner-radius")
+		(iokit-user-client-class "IOPlatformDevice"))
+	(require-all
+		(iokit-property "artwork-scale-factor")
+		(iokit-user-client-class "IOPlatformDevice")))
+(allow iokit-open-user-client
+	(iokit-user-client-class "AppleJPEGDriverUserClient")
+	(iokit-user-client-class "IOSurfaceAcceleratorClient")
+	(iokit-user-client-class "IOSurfaceRootUserClient")
+	(iokit-user-client-class "AppleKeyStoreUserClient")
+	(iokit-user-client-class "AGXDeviceUserClient")
+	(require-all
+		(debug-mode)
+		(iokit-user-client-class "IOSurfaceAcceleratorParavirtClient")))
+(allow iokit-open-service
+	(iokit-user-client-class "AppleKeyStore")
+	(iokit-user-client-class "AppleJPEGDriver")
+	(iokit-user-client-class "AGXAcceleratorG")
+	(iokit-user-client-class "IOSurfaceRoot")
+	(iokit-user-client-class "AppleM2ScalerCSCDriver"))
+(autobox (with no-report) iokit-set-properties)
+(allow ipc-posix-shm-read-data
+	(ipc-posix-name "apple.cfprefs."))
+(allow mach-derive-port)
+(allow mach-lookup
+	(global-name "com.apple.SystemConfiguration.NetworkInformation")
+	(global-name "com.apple.logd.events")
+	(global-name "com.apple.runningboard")
+	(global-name "com.apple.system.notification_center")
+	(global-name "com.apple.MTLCompilerService")
+	(global-name "com.apple.backboard.display.services")
+	(global-name "com.apple.CARenderServer")
+	(global-name "com.apple.mediaanalysisd.service.public")
+	(global-name "com.apple.fontservicesd")
+	(global-name "com.apple.springboard.services")
+	(global-name "com.apple.analyticsd")
+	(global-name "com.apple.PointerUI.pointeruid.service")
+	(global-name "com.apple.backboard.hid.services")
+	(global-name "com.apple.coremedia.systemcontroller.xpc")
+	(require-any (global-name "com.apple.cfprefsd.daemon")
+(global-name "com.apple.cfprefsd.daemon.system"))
+	(global-name "com.apple.iohideventsystem")
+	(global-name "com.apple.lsd.mapdb")
+	(global-name "com.apple.TextInput")
+	(global-name "com.apple.logd")
+	(global-name "com.apple.UIKit.KeyboardManagement.hosted")
+	(global-name "com.apple.backboard.hid-services.xpc")
+	(global-name "com.apple.containermanagerd.system")
+	(global-name "com.apple.frontboard.systemappservices"))
+(allow mach-register
+	(local-name "com.apple.iphone.axserver"))
+(allow mach-task-exception-port-set)
+(allow mach-task-special-port*)
+(allow mach-task-special-port-get)
+(allow mach-task-special-port-set)
+(allow network-outbound
+	(control-name "com.apple.flow-divert")
+	(literal "/private/var/run/syslog"))
+(allow nvram-get
+	(nvram-variable "emu"))
+(allow process-codesigning)
+(allow process-info-pidinfo
+	(target others))
+(allow process-info-sandbox-container)
+(allow process-iopolicy*)
+(allow process-iopolicy-get)
+(allow process-iopolicy-set)
+(allow sandbox-check)
+(allow syscall-unix
+	(syscall-number-bitmask-regex exit | read | write | open | sys_close | unlink | chmod | chown | getfsstat | getpid | getuid | geteuid | access | chflags | fchflags | kill | sys_crossarch_trap | sys_dup | getegid | sigprocmask | readlink | msync | munmap | mprotect | madvise | sys_fcntl | connect | gettimeofday | writev | fchown | fchmod | rename | sys_flock | mkdir | utimes | futimes | pread | pwrite | csops | csops_audittoken | kdebug_typefilter | kdebug_trace_string | kdebug_trace64 | kdebug_trace | getrlimit | mmap | lseek | ftruncate | sysctl | getattrlist | fsetattrlist | setxattr | fsetxattr | removexattr | fremovexattr | shm_open | sys_sysctlbyname | chmod_extended | fchmod_extended | gettid | shared_region_check_np | psynch_mutexwait | psynch_mutexdrop | psynch_cvbroad | psynch_cvwait | psynch_cvclrprepost | issetugid | __disable_threadsignal | proc_info | stat64 | sys_fstat64 | lstat64 | getdirentries64 | fstatfs64 | getfsstat64 | bsdthread_create | bsdthread_terminate | kevent | lchown | bsdthread_register | workq_open | workq_kernreturn | kevent64 | kevent_qos | kevent_id | __mac_syscall | read_nocancel | write_nocancel | open_nocancel | sys_close_nocancel | sys_fcntl_nocancel | connect_nocancel | writev_nocancel | pwrite_nocancel | fsgetpath | memorystatus_control | change_fdguard_np | proc_rlimit_control | connectx | openat | openat_nocancel | faccessat | fchmodat | fchownat | fstatat | fstatat64 | unlinkat | mkdirat | bsdthread_ctl | persona | getentropy | sys_ulock_wait | sys_ulock_wake | abort_with_payload | os_fault_with_payload | kqueue_workloop_ctl | objc_bp_assist_cfg_np | sys_pwritev | sys_pwritev_nocancel | sys_ulock_wait2 | map_with_linking_np))
+(allow syscall-mach
+	(machtrap-number-bitmask-regex MSC__kernelrpc_mach_vm_purgable_control_trap | machtrap_number_9 | MSC__kernelrpc_mach_vm_purgable_control_trap | machtrap_number_17 | MSC__kernelrpc_mach_port_mod_refs_trap | MSC__kernelrpc_mach_port_deallocate_trap | MSC__kernelrpc_mach_port_mod_refs_trap | MSC_thread_self_trap | MSC__kernelrpc_mach_port_destruct_trap | MSC_thread_self_trap | MSC_semaphore_signal_all_trap | MSC_semaphore_signal_trap | MSC_semaphore_signal_trap | MSC_mach_generate_activity_id | MSC__kernelrpc_mach_port_unguard_trap | MSC__kernelrpc_mach_port_guard_trap | MSC_mach_generate_activity_id | MSC_macx_swapoff | machtrap_number_65 | machtrap_number_75 | MSC_mach_wait_until | MSC_mach_wait_until | MSC_mk_timer_create | MSC_mk_timer_create | machtrap_number_97))
+(allow syscall-mig
+	(cc 4a84 5d6b 70d7))
+(delegate (with no-report) sysctl*)
+(allow sysctl-read
+	(sysctl-name "vm.footprint_suspend"))
+(delegate (with no-report) sysctl-write)
+(allow system-fcntl
+	(fcntl-command-bitmask-regex fnctl_number_41 | fnctl_number_49 | fnctl_number_98 | fnctl_number_97))
+(allow system-mac-syscall
+	(mac-syscall-number-bitmask-regex mac_syscall_number_1 | mac_syscall_number_1 | mac_syscall_number_66)
+	(require-all
+		(mac-syscall-number 90)
+		(mac-policy-name "AMFI")))
+(allow system-memorystatus-control)
+(allow system-privilege)
+(allow process-exec-update-label)

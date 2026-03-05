@@ -1,0 +1,2022 @@
+(version 1)
+(delegate (with no-report) default)
+(delegate (with no-report) appleevent-send)
+(delegate (with no-report) authorization-right-obtain)
+(delegate (with no-report) boot-arg-set)
+(allow consume-extension)
+(delegate (with no-report) device*)
+(delegate (with no-report) device-camera)
+(delegate (with no-report) device-microphone)
+(allow darwin-notification-post)
+(delegate (with no-report) distributed-notification-post)
+(allow dynamic-code-generation)
+(delegate (with no-report) file*)
+(delegate (with no-report) file-chroot)
+(allow file-clone)
+(delegate (with no-report) file-ioctl)
+(allow file-issue-extension
+	(require-all
+		(extension com.apple.shortcuts.access.photos)
+		(require-any
+			(require-all
+				(extension-class "com.apple.app-sandbox.read")
+				(require-any
+					(subpath-prefix "${HOME}/Media/PhotoStreamsData")
+					(subpath "/Library/Ringtones")))
+			(require-all
+				(extension-class "com.apple.aned.read-only")
+				(require-any
+					(subpath-prefix "${HOME}/Media/PhotoStreamsData")
+					(subpath "/Library/Ringtones")))
+			(require-all
+				(extension-class "com.apple.mediaserverd.read-write")
+				(require-any
+					(subpath-prefix "${HOME}/Media/Debug")
+					(subpath-prefix "${HOME}/Media/MediaAnalysis")
+					(subpath-prefix "${HOME}/Media/PhotoData")
+					(subpath-prefix "${HOME}/Media/Memories")
+					(subpath-prefix "${HOME}/Media/DCIM")
+					(subpath-prefix "${HOME}/Media/Photos")
+					(require-any (subpath "/private/var/tmp/com.apple.WorkflowKit.BackgroundShortcutRunner")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+					(require-all
+						(extension com.apple.shortcuts.access.internet)
+						(require-any
+							(subpath-prefix "${HOME}/Library/HTTPStorages/com.apple.WorkflowKit.BackgroundShortcutRunner")
+							(require-all
+								(literal-prefix "${HOME}/Library/Cookies/com.apple.WorkflowKit.BackgroundShortcutRunner.binarycookies")
+								(require-any
+									(extension-class "com.apple.app-sandbox.read-write")
+									(extension-class "com.apple.app-sandbox.read")
+									(extension-class "com.apple.mediaserverd.read-write")
+									(extension-class "com.apple.aned.read-only")
+									(extension-class "com.apple.mediaserverd.read")))))
+					(require-all
+						(extension-class "com.apple.mediaserverd.read-write")
+						(require-any
+							(extension com.apple.security.exception.files.home-relative-path.read-write)
+							(extension com.apple.security.exception.files.absolute-path.read-write)))
+					(require-all
+						(extension-class "com.apple.mediaserverd.read")
+						(require-any
+							(extension com.apple.security.exception.files.home-relative-path.read-only)
+							(extension com.apple.security.exception.files.absolute-path.read-only)
+							(extension com.apple.security.exception.files.home-relative-path.read-write)
+							(extension com.apple.security.exception.files.absolute-path.read-write)))
+					(require-all
+						(extension-class "com.apple.mediaserverd.read")
+						(subpath-prefix "${HOME}/Media/PhotoStreamsData"))))
+			(require-all
+				(extension-class "com.apple.mediaserverd.read")
+				(require-any
+					(subpath-prefix "${HOME}/Media/PhotoStreamsData")
+					(subpath "/Library/Ringtones")))
+			(require-all
+				(extension-class "com.apple.mediaserverd.read")
+				(require-any
+					(subpath-prefix "${HOME}/Media/Debug")
+					(subpath-prefix "${HOME}/Media/MediaAnalysis")
+					(subpath-prefix "${HOME}/Media/PhotoData")
+					(subpath-prefix "${HOME}/Media/Memories")
+					(subpath-prefix "${HOME}/Media/DCIM")
+					(subpath-prefix "${HOME}/Media/Photos")
+					(require-any (subpath "/private/var/tmp/com.apple.WorkflowKit.BackgroundShortcutRunner")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+					(require-all
+						(extension com.apple.shortcuts.access.internet)
+						(require-any
+							(subpath-prefix "${HOME}/Library/HTTPStorages/com.apple.WorkflowKit.BackgroundShortcutRunner")
+							(require-all
+								(literal-prefix "${HOME}/Library/Cookies/com.apple.WorkflowKit.BackgroundShortcutRunner.binarycookies")
+								(require-any
+									(extension-class "com.apple.app-sandbox.read-write")
+									(extension-class "com.apple.app-sandbox.read")
+									(extension-class "com.apple.mediaserverd.read-write")
+									(extension-class "com.apple.aned.read-only")
+									(extension-class "com.apple.mediaserverd.read")))))
+					(require-all
+						(extension-class "com.apple.mediaserverd.read-write")
+						(require-any
+							(extension com.apple.security.exception.files.home-relative-path.read-write)
+							(extension com.apple.security.exception.files.absolute-path.read-write)))
+					(require-all
+						(extension-class "com.apple.mediaserverd.read")
+						(require-any
+							(extension com.apple.security.exception.files.home-relative-path.read-only)
+							(extension com.apple.security.exception.files.absolute-path.read-only)
+							(extension com.apple.security.exception.files.home-relative-path.read-write)
+							(extension com.apple.security.exception.files.absolute-path.read-write)))
+					(require-all
+						(extension-class "com.apple.mediaserverd.read")
+						(subpath-prefix "${HOME}/Media/PhotoStreamsData"))))
+			(require-all
+				(extension-class "com.apple.sharing.airdrop.readonly")
+				(require-any
+					(subpath-prefix "${HOME}/Media")
+					(require-all
+						(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+						(require-any
+							(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+							(extension com.apple.librarian.ubiquity-container)))
+					(require-all
+						(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+						(require-any
+							(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+							(extension com.apple.librarian.ubiquity-container)))
+					(require-all
+						(subpath-prefix "${HOME}/Library/Mobile Documents")
+						(require-any
+							(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+							(extension com.apple.librarian.ubiquity-container)))
+					(require-all
+						(literal "/private/var/")
+						(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+						(subpath-prefix "${FRONT_USER_HOME}"))))
+			(require-all
+				(extension-class "com.apple.app-sandbox.read-write")
+				(require-any
+					(subpath-prefix "${HOME}/Media/Debug")
+					(subpath-prefix "${HOME}/Media/MediaAnalysis")
+					(subpath-prefix "${HOME}/Media/PhotoData")
+					(subpath-prefix "${HOME}/Media/Memories")
+					(subpath-prefix "${HOME}/Media/DCIM")
+					(subpath-prefix "${HOME}/Media/Photos")
+					(require-any (subpath "/private/var/tmp/com.apple.WorkflowKit.BackgroundShortcutRunner")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+					(require-all
+						(extension com.apple.shortcuts.access.internet)
+						(require-any
+							(subpath-prefix "${HOME}/Library/HTTPStorages/com.apple.WorkflowKit.BackgroundShortcutRunner")
+							(require-all
+								(literal-prefix "${HOME}/Library/Cookies/com.apple.WorkflowKit.BackgroundShortcutRunner.binarycookies")
+								(require-any
+									(extension-class "com.apple.app-sandbox.read-write")
+									(extension-class "com.apple.app-sandbox.read")
+									(extension-class "com.apple.mediaserverd.read-write")
+									(extension-class "com.apple.aned.read-only")
+									(extension-class "com.apple.mediaserverd.read")))))
+					(require-all
+						(extension-class "com.apple.mediaserverd.read-write")
+						(require-any
+							(extension com.apple.security.exception.files.home-relative-path.read-write)
+							(extension com.apple.security.exception.files.absolute-path.read-write)))
+					(require-all
+						(extension-class "com.apple.mediaserverd.read")
+						(require-any
+							(extension com.apple.security.exception.files.home-relative-path.read-only)
+							(extension com.apple.security.exception.files.absolute-path.read-only)
+							(extension com.apple.security.exception.files.home-relative-path.read-write)
+							(extension com.apple.security.exception.files.absolute-path.read-write)))))
+			(require-all
+				(extension-class "com.apple.app-sandbox.read")
+				(require-any
+					(subpath-prefix "${HOME}/Media/Debug")
+					(subpath-prefix "${HOME}/Media/MediaAnalysis")
+					(subpath-prefix "${HOME}/Media/PhotoData")
+					(subpath-prefix "${HOME}/Media/Memories")
+					(subpath-prefix "${HOME}/Media/DCIM")
+					(subpath-prefix "${HOME}/Media/Photos")
+					(require-any (subpath "/private/var/tmp/com.apple.WorkflowKit.BackgroundShortcutRunner")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+					(require-all
+						(extension com.apple.shortcuts.access.internet)
+						(require-any
+							(subpath-prefix "${HOME}/Library/HTTPStorages/com.apple.WorkflowKit.BackgroundShortcutRunner")
+							(require-all
+								(literal-prefix "${HOME}/Library/Cookies/com.apple.WorkflowKit.BackgroundShortcutRunner.binarycookies")
+								(require-any
+									(extension-class "com.apple.app-sandbox.read-write")
+									(extension-class "com.apple.app-sandbox.read")
+									(extension-class "com.apple.mediaserverd.read-write")
+									(extension-class "com.apple.aned.read-only")
+									(extension-class "com.apple.mediaserverd.read")))))
+					(require-all
+						(extension-class "com.apple.mediaserverd.read-write")
+						(require-any
+							(extension com.apple.security.exception.files.home-relative-path.read-write)
+							(extension com.apple.security.exception.files.absolute-path.read-write)))
+					(require-all
+						(extension-class "com.apple.mediaserverd.read")
+						(require-any
+							(extension com.apple.security.exception.files.home-relative-path.read-only)
+							(extension com.apple.security.exception.files.absolute-path.read-only)
+							(extension com.apple.security.exception.files.home-relative-path.read-write)
+							(extension com.apple.security.exception.files.absolute-path.read-write)))))
+			(require-all
+				(extension-class "com.apple.aned.read-only")
+				(require-any
+					(subpath-prefix "${HOME}/Media/Debug")
+					(subpath-prefix "${HOME}/Media/MediaAnalysis")
+					(subpath-prefix "${HOME}/Media/PhotoData")
+					(subpath-prefix "${HOME}/Media/Memories")
+					(subpath-prefix "${HOME}/Media/DCIM")
+					(subpath-prefix "${HOME}/Media/Photos")
+					(require-any (subpath "/private/var/tmp/com.apple.WorkflowKit.BackgroundShortcutRunner")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+					(require-all
+						(extension com.apple.shortcuts.access.internet)
+						(require-any
+							(subpath-prefix "${HOME}/Library/HTTPStorages/com.apple.WorkflowKit.BackgroundShortcutRunner")
+							(require-all
+								(literal-prefix "${HOME}/Library/Cookies/com.apple.WorkflowKit.BackgroundShortcutRunner.binarycookies")
+								(require-any
+									(extension-class "com.apple.app-sandbox.read-write")
+									(extension-class "com.apple.app-sandbox.read")
+									(extension-class "com.apple.mediaserverd.read-write")
+									(extension-class "com.apple.aned.read-only")
+									(extension-class "com.apple.mediaserverd.read")))))
+					(require-all
+						(extension-class "com.apple.mediaserverd.read-write")
+						(require-any
+							(extension com.apple.security.exception.files.home-relative-path.read-write)
+							(extension com.apple.security.exception.files.absolute-path.read-write)))
+					(require-all
+						(extension-class "com.apple.mediaserverd.read")
+						(require-any
+							(extension com.apple.security.exception.files.home-relative-path.read-only)
+							(extension com.apple.security.exception.files.absolute-path.read-only)
+							(extension com.apple.security.exception.files.home-relative-path.read-write)
+							(extension com.apple.security.exception.files.absolute-path.read-write)))))))
+	(require-all
+		(extension-class "com.apple.app-sandbox.read-write")
+		(require-any
+			(require-any (subpath "/private/var/tmp/com.apple.WorkflowKit.BackgroundShortcutRunner")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+			(require-all
+				(extension com.apple.shortcuts.access.internet)
+				(require-any
+					(subpath-prefix "${HOME}/Library/HTTPStorages/com.apple.WorkflowKit.BackgroundShortcutRunner")
+					(require-all
+						(literal-prefix "${HOME}/Library/Cookies/com.apple.WorkflowKit.BackgroundShortcutRunner.binarycookies")
+						(require-any
+							(extension-class "com.apple.app-sandbox.read-write")
+							(extension-class "com.apple.app-sandbox.read")
+							(extension-class "com.apple.mediaserverd.read-write")
+							(extension-class "com.apple.aned.read-only")
+							(extension-class "com.apple.mediaserverd.read")))))
+			(require-all
+				(extension-class "com.apple.mediaserverd.read-write")
+				(require-any
+					(extension com.apple.security.exception.files.home-relative-path.read-write)
+					(extension com.apple.security.exception.files.absolute-path.read-write)))
+			(require-all
+				(extension-class "com.apple.mediaserverd.read")
+				(require-any
+					(extension com.apple.security.exception.files.home-relative-path.read-only)
+					(extension com.apple.security.exception.files.absolute-path.read-only)
+					(extension com.apple.security.exception.files.home-relative-path.read-write)
+					(extension com.apple.security.exception.files.absolute-path.read-write)))))
+	(require-all
+		(extension-class "com.apple.app-sandbox.read")
+		(require-any
+			(require-any (subpath "/private/var/tmp/com.apple.WorkflowKit.BackgroundShortcutRunner")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+			(require-all
+				(extension com.apple.shortcuts.access.internet)
+				(require-any
+					(subpath-prefix "${HOME}/Library/HTTPStorages/com.apple.WorkflowKit.BackgroundShortcutRunner")
+					(require-all
+						(literal-prefix "${HOME}/Library/Cookies/com.apple.WorkflowKit.BackgroundShortcutRunner.binarycookies")
+						(require-any
+							(extension-class "com.apple.app-sandbox.read-write")
+							(extension-class "com.apple.app-sandbox.read")
+							(extension-class "com.apple.mediaserverd.read-write")
+							(extension-class "com.apple.aned.read-only")
+							(extension-class "com.apple.mediaserverd.read")))))
+			(require-all
+				(extension-class "com.apple.mediaserverd.read-write")
+				(require-any
+					(extension com.apple.security.exception.files.home-relative-path.read-write)
+					(extension com.apple.security.exception.files.absolute-path.read-write)))
+			(require-all
+				(extension-class "com.apple.mediaserverd.read")
+				(require-any
+					(extension com.apple.security.exception.files.home-relative-path.read-only)
+					(extension com.apple.security.exception.files.absolute-path.read-only)
+					(extension com.apple.security.exception.files.home-relative-path.read-write)
+					(extension com.apple.security.exception.files.absolute-path.read-write)))))
+	(require-all
+		(extension-class "com.apple.mediaserverd.read-write")
+		(require-any
+			(require-any (subpath "/private/var/tmp/com.apple.WorkflowKit.BackgroundShortcutRunner")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+			(require-all
+				(extension com.apple.shortcuts.access.internet)
+				(require-any
+					(subpath-prefix "${HOME}/Library/HTTPStorages/com.apple.WorkflowKit.BackgroundShortcutRunner")
+					(require-all
+						(literal-prefix "${HOME}/Library/Cookies/com.apple.WorkflowKit.BackgroundShortcutRunner.binarycookies")
+						(require-any
+							(extension-class "com.apple.app-sandbox.read-write")
+							(extension-class "com.apple.app-sandbox.read")
+							(extension-class "com.apple.mediaserverd.read-write")
+							(extension-class "com.apple.aned.read-only")
+							(extension-class "com.apple.mediaserverd.read")))))
+			(require-all
+				(extension-class "com.apple.mediaserverd.read-write")
+				(require-any
+					(extension com.apple.security.exception.files.home-relative-path.read-write)
+					(extension com.apple.security.exception.files.absolute-path.read-write)))
+			(require-all
+				(extension-class "com.apple.mediaserverd.read")
+				(require-any
+					(extension com.apple.security.exception.files.home-relative-path.read-only)
+					(extension com.apple.security.exception.files.absolute-path.read-only)
+					(extension com.apple.security.exception.files.home-relative-path.read-write)
+					(extension com.apple.security.exception.files.absolute-path.read-write)))))
+	(require-all
+		(extension-class "com.apple.aned.read-only")
+		(require-any
+			(require-any (subpath "/private/var/tmp/com.apple.WorkflowKit.BackgroundShortcutRunner")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+			(require-all
+				(extension com.apple.shortcuts.access.internet)
+				(require-any
+					(subpath-prefix "${HOME}/Library/HTTPStorages/com.apple.WorkflowKit.BackgroundShortcutRunner")
+					(require-all
+						(literal-prefix "${HOME}/Library/Cookies/com.apple.WorkflowKit.BackgroundShortcutRunner.binarycookies")
+						(require-any
+							(extension-class "com.apple.app-sandbox.read-write")
+							(extension-class "com.apple.app-sandbox.read")
+							(extension-class "com.apple.mediaserverd.read-write")
+							(extension-class "com.apple.aned.read-only")
+							(extension-class "com.apple.mediaserverd.read")))))
+			(require-all
+				(extension-class "com.apple.mediaserverd.read-write")
+				(require-any
+					(extension com.apple.security.exception.files.home-relative-path.read-write)
+					(extension com.apple.security.exception.files.absolute-path.read-write)))
+			(require-all
+				(extension-class "com.apple.mediaserverd.read")
+				(require-any
+					(extension com.apple.security.exception.files.home-relative-path.read-only)
+					(extension com.apple.security.exception.files.absolute-path.read-only)
+					(extension com.apple.security.exception.files.home-relative-path.read-write)
+					(extension com.apple.security.exception.files.absolute-path.read-write)))))
+	(require-all
+		(extension-class "com.apple.mediaserverd.read")
+		(require-any
+			(require-all
+				(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+				(require-any
+					(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+					(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+					(subpath-prefix "${HOME}/Library/Mobile Documents")
+					(require-all
+						(literal "/private/var/")
+						(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+						(subpath-prefix "${FRONT_USER_HOME}"))))
+			(require-all
+				(extension com.apple.librarian.ubiquity-container)
+				(require-any
+					(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+					(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+					(subpath-prefix "${HOME}/Library/Mobile Documents")
+					(require-all
+						(literal "/private/var/")
+						(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+						(subpath-prefix "${FRONT_USER_HOME}"))))
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(subpath-prefix "${HOME}/Library/Mobile Documents")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(extension-class "com.apple.mediaserverd.read")
+		(require-any
+			(require-any (subpath "/private/var/tmp/com.apple.WorkflowKit.BackgroundShortcutRunner")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+			(require-all
+				(extension com.apple.shortcuts.access.internet)
+				(require-any
+					(subpath-prefix "${HOME}/Library/HTTPStorages/com.apple.WorkflowKit.BackgroundShortcutRunner")
+					(require-all
+						(literal-prefix "${HOME}/Library/Cookies/com.apple.WorkflowKit.BackgroundShortcutRunner.binarycookies")
+						(require-any
+							(extension-class "com.apple.app-sandbox.read-write")
+							(extension-class "com.apple.app-sandbox.read")
+							(extension-class "com.apple.mediaserverd.read-write")
+							(extension-class "com.apple.aned.read-only")
+							(extension-class "com.apple.mediaserverd.read")))))
+			(require-all
+				(extension-class "com.apple.mediaserverd.read-write")
+				(require-any
+					(extension com.apple.security.exception.files.home-relative-path.read-write)
+					(extension com.apple.security.exception.files.absolute-path.read-write)))
+			(require-all
+				(extension-class "com.apple.mediaserverd.read")
+				(require-any
+					(extension com.apple.security.exception.files.home-relative-path.read-only)
+					(extension com.apple.security.exception.files.absolute-path.read-only)
+					(extension com.apple.security.exception.files.home-relative-path.read-write)
+					(extension com.apple.security.exception.files.absolute-path.read-write)))))
+	(require-all
+		(extension-class "com.apple.nsurlsessiond.readonly")
+		(extension com.apple.sandbox.executable)
+		(extension com.apple.shortcuts.access.internet))
+	(require-all
+		(extension-class "com.apple.quicklook.readonly")
+		(require-any
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(subpath-prefix "${HOME}/Library/Mobile Documents")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(extension-class "com.apple.sharing.airdrop.readonly")
+		(require-any
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(subpath-prefix "${HOME}/Library/Mobile Documents")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(extension-class "com.apple.app-sandbox.read-write")
+		(require-any
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(subpath-prefix "${HOME}/Library/Mobile Documents")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(extension com.apple.app-sandbox.read-write)
+		(require-any
+			(extension-class "com.apple.mediaserverd.read-write")
+			(extension-class "com.apple.mediaserverd.read")
+			(extension-class "com.apple.app-sandbox.read-write")
+			(extension-class "com.apple.app-sandbox.read")
+			(extension-class "com.apple.sharing.airdrop.readonly")))
+	(require-all
+		(extension-class "com.apple.app-sandbox.read")
+		(require-any
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(subpath-prefix "${HOME}/Library/Mobile Documents")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(extension-class "com.apple.mediaserverd.read-write")
+		(require-any
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(subpath-prefix "${HOME}/Library/Mobile Documents")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(extension-class "com.apple.quicklook.readonly")
+		(require-any
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Application Support/iCloudDrive/[UNSUPPORTED]+/session/r/?")
+				(extension com.apple.clouddocs.version))
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r/" #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r$" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r/" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r$" #"^/private/var/euser[0-9]+/Containers/(Temp/)?Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r/" #"^/private/var/euser[0-9]+/Containers/(Temp/)?Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r$" #"^/private/var/[-0-9A-F]+/Containers/(Temp/)?Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r/" #"^/private/var/[-0-9A-F]+/Containers/(Temp/)?Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r$" #"^/private/var/Users/[^/]+/Containers/(Temp/)?Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r/" #"^/private/var/Users/[^/]+/Containers/(Temp/)?Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r$")
+				(require-any (subpath-prefix "${HOME}")
+(subpath-prefix "${FRONT_USER_HOME}")))
+			(require-all
+				(subpath-prefix "${HOME}/Library/Application Support/CloudDocs/session/r")
+				(vnode-type REGULAR-FILE))
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Application Support/CloudDocs/session/r/?")
+				(vnode-type REGULAR-FILE))))
+	(require-all
+		(extension-class "com.apple.identityservices.send")
+		(require-any
+			(subpath "/private/var/tmp")
+			(subpath-prefix "${PROCESS_TEMP_DIR}")))
+	(require-all
+		(extension com.apple.sandbox.application-group)
+		(require-not (regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/.com.apple."))
+		(require-any
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/[.]com[.]apple[.]" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/[.]com[.]apple[.]" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/[.]com[.]apple[.]" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/[.]com[.]apple[.]")
+				(require-not (subpath-prefix "${FRONT_USER_HOME}")))
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/")
+				(require-any
+					(extension-class "com.apple.app-sandbox.read-write")
+					(extension-class "com.apple.app-sandbox.read")
+					(extension-class "com.apple.sharing.airdrop.readonly")
+					(extension-class "com.apple.mediaserverd.read-write")
+					(extension-class "com.apple.nsurlsessiond.readonly")
+					(extension-class "com.apple.wcd.readonly")
+					(extension-class "com.apple.aned.read-only")
+					(extension-class "com.apple.spotlight-indexable")
+					(extension-class "com.apple.mediaserverd.read")
+					(extension-class "com.apple.quicklook.readonly")))
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/")
+				(subpath-prefix "${FRONT_USER_HOME}"))
+			(require-all
+				(extension-class "com.apple.mediaserverd.read")
+				(require-any
+					(subpath-prefix "${HOME}/Library/Caches/com.apple.WorkflowKit.BackgroundShortcutRunner")
+					(require-all
+						(literal "/private/var/")
+						(require-any
+							(require-all
+								(subpath-prefix "${FRONT_USER_HOME}")
+								(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+$"))
+							(require-all
+								(literal "/private/var/PersonaVolumes/")
+								(regex #"^/private/var/PersonaVolumes/[^/]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/PersonaVolumes/[^/]+/Containers/Shared/AppGroup/[^/]+$"))
+							(require-all
+								(subpath-prefix "${FRONT_USER_HOME}")
+								(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+$"))
+							(require-all
+								(literal "/private/var/PersonaVolumes/")
+								(regex #"^/private/var/PersonaVolumes/[^/]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/PersonaVolumes/[^/]+/Containers/Shared/AppGroup/[^/]+$"))))))
+			(require-all
+				(extension-class "com.apple.app-sandbox.read")
+				(require-any
+					(subpath-prefix "${HOME}/Library/Caches/com.apple.WorkflowKit.BackgroundShortcutRunner")
+					(require-all
+						(literal "/private/var/")
+						(require-any
+							(require-all
+								(subpath-prefix "${FRONT_USER_HOME}")
+								(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+$"))
+							(require-all
+								(literal "/private/var/PersonaVolumes/")
+								(regex #"^/private/var/PersonaVolumes/[^/]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/PersonaVolumes/[^/]+/Containers/Shared/AppGroup/[^/]+$"))))))
+			(require-all
+				(extension-class "com.apple.aned.read-only")
+				(require-any
+					(subpath-prefix "${HOME}/Library/Caches/com.apple.WorkflowKit.BackgroundShortcutRunner")
+					(require-all
+						(literal "/private/var/")
+						(require-any
+							(require-all
+								(subpath-prefix "${FRONT_USER_HOME}")
+								(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+$"))
+							(require-all
+								(literal "/private/var/PersonaVolumes/")
+								(regex #"^/private/var/PersonaVolumes/[^/]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/PersonaVolumes/[^/]+/Containers/Shared/AppGroup/[^/]+$"))))))))
+	(require-all
+		(extension-class "com.apple.aned.read-only")
+		(require-any
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(subpath-prefix "${HOME}/Library/Mobile Documents")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(extension-class "com.apple.mediaserverd.read")
+		(require-any
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(subpath-prefix "${HOME}/Library/Mobile Documents")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+					(extension com.apple.librarian.ubiquity-container)))
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(extension-class "com.apple.mediaserverd.read")
+		(subpath-prefix "${HOME}/Library/Caches/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+	(require-all
+		(extension-class "com.apple.app-sandbox.read-write")
+		(subpath-prefix "${HOME}/Library/Caches/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+	(require-all
+		(extension-class "com.apple.app-sandbox.read")
+		(subpath-prefix "${HOME}/Library/Caches/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+	(require-all
+		(extension-class "com.apple.mediaserverd.read-write")
+		(subpath-prefix "${HOME}/Library/Caches/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+	(require-all
+		(extension-class "com.apple.aned.read-only")
+		(subpath-prefix "${HOME}/Library/Caches/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+	(require-all
+		(extension-class "com.apple.mediaserverd.read")
+		(subpath-prefix "${HOME}/Library/Caches/com.apple.WorkflowKit.BackgroundShortcutRunner")))
+(allow file-link
+	(require-not (subpath-prefix "${HOME}/Library/AddressBook"))
+	(require-not (extension com.apple.shortcuts.access.contacts))
+	(require-all
+		(subpath-prefix "${HOME}/Media")
+		(require-any
+			(process-attribute is-apple-signed-executable)
+			(require-not (extension com.apple.shortcuts.access.photos)))))
+(allow file-lock)
+(allow file-map-executable
+	(require-all
+		(extension com.apple.sandbox.application-group)
+		(require-any
+			(require-all
+				(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/")
+				(require-any
+					(entitlement-is-bool-true com.apple.private.amfi.can-execute-cdhash)
+					(entitlement-is-bool-true get-task-allow)))
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/")
+				(subpath-prefix "${FRONT_USER_HOME}")))))
+(delegate (with no-report) file-mknod)
+(delegate (with no-report) file-mount)
+(delegate (with no-report) file-mount-update)
+(allow file-read*
+	(require-any (subpath "/AppleInternal/Applications")
+(subpath "/System/Developer/Applications")
+(subpath "/private/var/personalized_automation/Applications")
+(subpath "/private/var/personalized_debug/Applications")
+(regex #"/private/var/personalized_factory/[UNSUPPORTED]+/Applications/?")
+(regex #"/private/var/factory_mount/[UNSUPPORTED]+/Applications/?"))
+	(subpath-prefix "${HOME}/Library/Fonts")
+	(require-any (subpath "/private/var/tmp/com.apple.WorkflowKit.BackgroundShortcutRunner")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+	(subpath "/private/var/containers/Bundle")
+	(subpath "/private/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles")
+	(subpath-prefix "${HOME}/Library/com.apple.PrivacyDisclosure")
+	(subpath "/Developer/Applications")
+	(subpath-prefix "${FRONT_USER_HOME}/Library/UserConfigurationProfiles")
+	(subpath-prefix "${FRONT_USER_HOME}/Containers/Bundle")
+	(literal-prefix "${HOME}/Library/Caches/com.apple.itunesstored/url-resolution.plist")
+	(subpath-prefix "${FRONT_USER_HOME}/Library/ConfigurationProfiles")
+	(subpath-prefix "${HOME}/Library/Shortcuts/QuarantineAsset")
+	(subpath-prefix "${HOME}/Library/SyncedIntentDefinitions")
+	(subpath "/Applications")
+	(subpath-prefix "${HOME}/Library/Caches/com.apple.WorkflowKit.BackgroundShortcutRunner")
+	(require-all
+		(extension com.apple.shortcuts.access.photos)
+		(require-any
+			(subpath-prefix "${HOME}/Media/Debug")
+			(literal-prefix "${HOME}/Library/Caches/Checkpoint.plist")
+			(subpath-prefix "${HOME}/Media/MediaAnalysis")
+			(subpath-prefix "${HOME}/Media/PhotoData")
+			(subpath-prefix "${HOME}/Media/Memories")
+			(literal-prefix "${HOME}/Media/Vibrations/UserGeneratedVibrationPatterns.plist")
+			(subpath-prefix "${HOME}/Media/PhotoStreamsData")
+			(subpath-prefix "${HOME}/Media/DCIM")
+			(subpath-prefix "${HOME}/Media/Photos")
+			(subpath "/Library/Ringtones")
+			(require-all
+				(literal "/private/var/")
+				(require-any
+					(require-not (subpath-prefix "${HOME}/Library/FairPlay"))
+					(require-all
+						(subpath-prefix "${FRONT_USER_HOME}")
+						(require-any
+							(regex #"^/private/var/mobile/Library/DeviceRegistry/[-0-9A-Z]+/NanoPreferencesSync/NanoDomains/com.apple.nanoprefsyncd$" #"^/private/var/euser[0-9]+/Library/DeviceRegistry/[-0-9A-Z]+/NanoPreferencesSync/NanoDomains/com.apple.nanoprefsyncd$" #"^/private/var/[-0-9A-F]+/Library/DeviceRegistry/[-0-9A-Z]+/NanoPreferencesSync/NanoDomains/com.apple.nanoprefsyncd$" #"^/private/var/Users/[^/]+/Library/DeviceRegistry/[-0-9A-Z]+/NanoPreferencesSync/NanoDomains/com.apple.nanoprefsyncd$")
+							(regex #"^/private/var/mobile/Library/DeviceRegistry/[-0-9A-Z]+/NanoPreferencesSync/NanoDomains/com[.]apple[.]ToneLibrary$" #"^/private/var/euser[0-9]+/Library/DeviceRegistry/[-0-9A-Z]+/NanoPreferencesSync/NanoDomains/com[.]apple[.]ToneLibrary$" #"^/private/var/[-0-9A-F]+/Library/DeviceRegistry/[-0-9A-Z]+/NanoPreferencesSync/NanoDomains/com[.]apple[.]ToneLibrary$" #"^/private/var/Users/[^/]+/Library/DeviceRegistry/[-0-9A-Z]+/NanoPreferencesSync/NanoDomains/com[.]apple[.]ToneLibrary$")))))
+			(require-all
+				(require-not (literal "/usr/sbin/fairplayd"))
+				(require-not (subpath-prefix "${HOME}/Library/FairPlay")))))
+	(require-all
+		(extension com.apple.shortcuts.access.location)
+		(require-any
+			(literal-prefix "${FRONT_USER_HOME}/Library/Preferences/com.apple.carrier.plist")
+			(subpath-prefix "${FRONT_USER_HOME}/Library/Carrier Bundles/Overlay")
+			(require-all
+				(literal-prefix "${ANY_USER_HOME}/Library/Caches/GeoServices/tguid.bin")
+				(require-not (extension com.apple.shortcuts.access.location)))
+			(require-all
+				(literal "/System/Library/Carrier Bundles/")
+				(require-any
+					(regex #"^/System/Library/Carrier Bundles//carrier[.]plist$" #"^/System/Library/Carrier Bundles/.+/carrier[.]plist$")
+					(regex #"^/System/Library/Carrier Bundles/[.]png$" #"^/System/Library/Carrier Bundles/.+[.]png$")))
+			(require-all
+				(literal "/private/var/")
+				(require-any
+					(require-all
+						(subpath-prefix "${HOME}")
+						(require-any
+							(require-all
+								(vnode-type DIRECTORY)
+								(regex #"^/private/var/mobile/Media/iTunes_Control/iTunes$" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes$" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes$" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes$" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes$")
+								(literal "/private/var/")
+								(subpath-prefix "${HOME}"))
+							(require-all
+								(regex #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal")
+								(require-any
+									(require-all
+										(extension com.apple.shortcuts.access.music-library)
+										(extension com.apple.tcc.kTCCServiceMediaLibrary))
+									(require-all
+										(literal "/private/var/")
+										(subpath-prefix "${HOME}"))))
+							(require-all
+								(extension com.apple.shortcuts.access.music-library)
+								(extension com.apple.tcc.kTCCServiceMediaLibrary)
+								(require-any
+									(regex #"^/private/var/mobile/Media/iTunes_Control/Artwork/" #"^/private/var/mobile/Media/iTunes_Control/Artwork$" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/Artwork/" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/Artwork$" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/Artwork/" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/Artwork$" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/Artwork/" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/Artwork$" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/Artwork/" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/Artwork$")
+									(regex #"^/private/var/mobile/Media/iTunes_Control/iTunes/" #"^/private/var/mobile/Media/iTunes_Control/iTunes$" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes$" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes$" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes$" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes$")))))
+					(require-all
+						(subpath-prefix "${FRONT_USER_HOME}")
+						(require-any
+							(regex #"^/private/var/mobile/Library/Carrier Bundles//carrier[.]plist$" #"^/private/var/mobile/Library/Carrier Bundles/.+/carrier[.]plist$" #"^/private/var/euser[0-9]+/Library/Carrier Bundles/.*/carrier[.]plist$" #"^/private/var/[-0-9A-F]+/Library/Carrier Bundles/.*/carrier[.]plist$" #"^/private/var/Users/[^/]+/Library/Carrier Bundles/.*/carrier[.]plist$")
+							(regex #"^/private/var/mobile/Library/Carrier Bundles/[.]png$" #"^/private/var/mobile/Library/Carrier Bundles/.+[.]png$" #"^/private/var/euser[0-9]+/Library/Carrier Bundles/.*[.]png$" #"^/private/var/[-0-9A-F]+/Library/Carrier Bundles/.*[.]png$" #"^/private/var/Users/[^/]+/Library/Carrier Bundles/.*[.]png$")))))))
+	(require-all
+		(literal "/private/var/")
+		(require-any
+			(require-all
+				(subpath-prefix "${HOME}")
+				(require-any
+					(require-all
+						(vnode-type DIRECTORY)
+						(regex #"^/private/var/mobile/Media/iTunes_Control/iTunes$" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes$" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes$" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes$" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes$")
+						(literal "/private/var/")
+						(subpath-prefix "${HOME}"))
+					(require-all
+						(regex #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal")
+						(require-any
+							(require-all
+								(extension com.apple.shortcuts.access.music-library)
+								(extension com.apple.tcc.kTCCServiceMediaLibrary))
+							(require-all
+								(literal "/private/var/")
+								(subpath-prefix "${HOME}"))))
+					(require-all
+						(extension com.apple.shortcuts.access.music-library)
+						(extension com.apple.tcc.kTCCServiceMediaLibrary)
+						(require-any
+							(regex #"^/private/var/mobile/Media/iTunes_Control/Artwork/" #"^/private/var/mobile/Media/iTunes_Control/Artwork$" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/Artwork/" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/Artwork$" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/Artwork/" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/Artwork$" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/Artwork/" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/Artwork$" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/Artwork/" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/Artwork$")
+							(regex #"^/private/var/mobile/Media/iTunes_Control/iTunes/" #"^/private/var/mobile/Media/iTunes_Control/iTunes$" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes$" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes$" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes$" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes$")))))
+			(require-all
+				(literal-prefix "${ANY_USER_HOME}/Library/Caches/GeoServices/tguid.bin")
+				(require-not (extension com.apple.shortcuts.access.location)))))
+	(require-all
+		(extension com.apple.shortcuts.access.internet)
+		(require-any
+			(literal "/private/var/preferences/com.apple.networkd.plist")
+			(literal "/private/var/Managed Preferences/mobile/com.apple.SystemConfiguration.plist")
+			(literal "/private/var/preferences/com.apple.security.plist")
+			(literal "/private/var/db/com.apple.networkextension.tracker-info")
+			(literal "/private/var/preferences/com.apple.NetworkStatistics.plist")
+			(literal "/private/var/containers/Shared/SystemGroup/systemgroup.com.apple.nsurlstoragedresources/Library/dafsaData.bin")
+			(require-any (subpath-prefix "${HOME}/Library/WebKit/com.apple.WorkflowKit.BackgroundShortcutRunner")
+(literal-prefix "${HOME}/Library/Cookies/com.apple.WorkflowKit.BackgroundShortcutRunner.binarycookies")
+(subpath-prefix "${HOME}/Library/HTTPStorages/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+			(require-all
+				(process-attribute is-apple-signed-executable)
+				(literal "/private/var/preferences/com.apple.networkextension.uuidcache.plist"))
+			(require-all
+				(literal "/private/var/preferences/com.apple.networkextension.plist")
+				(entitlement-is-present com.apple.private.networkextension.configuration))))
+	(require-all
+		(literal "/private/var/")
+		(regex #"^/private/var/mobile/Library/DeviceRegistry/[-0-9A-Z]+/GeoServices$" #"^/private/var/mobile/Library/DeviceRegistry/[-0-9A-Z]+/GeoServices/" #"^/private/var/euser[0-9]+/Library/DeviceRegistry/[-0-9A-Z]+/GeoServices$" #"^/private/var/euser[0-9]+/Library/DeviceRegistry/[-0-9A-Z]+/GeoServices/" #"^/private/var/[-0-9A-F]+/Library/DeviceRegistry/[-0-9A-Z]+/GeoServices$" #"^/private/var/[-0-9A-F]+/Library/DeviceRegistry/[-0-9A-Z]+/GeoServices/" #"^/private/var/Users/[^/]+/Library/DeviceRegistry/[-0-9A-Z]+/GeoServices$" #"^/private/var/Users/[^/]+/Library/DeviceRegistry/[-0-9A-Z]+/GeoServices/")
+		(subpath-prefix "${FRONT_USER_HOME}")
+		(extension com.apple.shortcuts.access.location))
+	(require-all
+		(subpath-prefix "${FRONT_USER_HOME}/Library/Caches/GeoServices")
+		(extension com.apple.shortcuts.access.location))
+	(require-all
+		(subpath "/private/var/containers/Data/System/com.apple.geod")
+		(extension com.apple.shortcuts.access.location))
+	(require-all
+		(subpath-prefix "${HOME}/Library/AddressBook/Delegates")
+		(entitlement-is-bool-true com.apple.Contacts.database-allow)
+		(extension com.apple.shortcuts.access.contacts)
+		(extension com.apple.tcc.kTCCServiceAddressBook))
+	(require-all
+		(subpath-prefix "${HOME}/Library/AddressBook")
+		(entitlement-is-bool-true com.apple.Contacts.database-allow)
+		(extension com.apple.shortcuts.access.contacts)
+		(extension com.apple.tcc.kTCCServiceAddressBook))
+	(require-all
+		(literal-prefix "${HOME}/Library/Preferences/com.apple.mobilephone.speeddial.plist")
+		(entitlement-is-bool-true com.apple.Contacts.database-allow)
+		(extension com.apple.shortcuts.access.contacts)
+		(extension com.apple.tcc.kTCCServiceAddressBook))
+	(require-all
+		(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Application Support/Ubiquity/genstore/?")
+		(extension com.apple.librarian.ubiquity-revision))
+	(require-all
+		(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+		(require-any
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+			(subpath-prefix "${HOME}/Library/Mobile Documents")
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(subpath-prefix "${HOME}/Library/Application Support/Ubiquity/genstore")
+		(extension com.apple.librarian.ubiquity-revision))
+	(require-all
+		(extension com.apple.librarian.ubiquity-container)
+		(require-any
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+			(subpath-prefix "${HOME}/Library/Mobile Documents")
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Application Support/iCloudDrive/[UNSUPPORTED]+/session/r/?")
+		(extension com.apple.clouddocs.version))
+	(require-all
+		(literal "/private/var/")
+		(regex #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r/" #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r$" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r/" #"^/private/var/mobile/Containers/Temp/Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r$" #"^/private/var/euser[0-9]+/Containers/(Temp/)?Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r/" #"^/private/var/euser[0-9]+/Containers/(Temp/)?Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r$" #"^/private/var/[-0-9A-F]+/Containers/(Temp/)?Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r/" #"^/private/var/[-0-9A-F]+/Containers/(Temp/)?Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r$" #"^/private/var/Users/[^/]+/Containers/(Temp/)?Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r/" #"^/private/var/Users/[^/]+/Containers/(Temp/)?Data/[^/]+/[^/]+/Library/Application Support/iCloudDrive/[^/]+/session/r$")
+		(require-any (subpath-prefix "${HOME}")
+(subpath-prefix "${FRONT_USER_HOME}"))
+		(extension com.apple.clouddocs.version))
+	(require-all
+		(subpath-prefix "${HOME}/Library/Application Support/CloudDocs/session/r")
+		(vnode-type REGULAR-FILE)
+		(extension com.apple.clouddocs.version))
+	(require-all
+		(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Application Support/CloudDocs/session/r/?")
+		(vnode-type REGULAR-FILE)
+		(extension com.apple.clouddocs.version))
+	(require-all
+		(subpath-prefix "${FRONT_USER_HOME}/Library/IdentityServices")
+		(extension com.apple.identityservices.deliver))
+	(require-all
+		(literal-prefix "${FRONT_USER_HOME}/Library/Caches/com.apple.Pasteboard/")
+		(extension com.apple.Pasteboard-readonly))
+	(require-all
+		(extension com.apple.assets.read)
+		(require-any
+			(subpath "/private/var/MobileAsset")
+			(subpath-prefix "${HOME}/Library/Assets")))
+	(require-all
+		(extension com.apple.fileprovider.read-write)
+		(require-any
+			(require-any (subpath-prefix "${ANY_USER_HOME}/tmp/com.apple.fileproviderd")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/tmp/com[UNSUPPORTED]apple[UNSUPPORTED]fileproviderd/?"))
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/Library/Application Support/Collaboration/com.apple.iWork/" #"^/private/var/euser[0-9]+/Containers/Data/[^/]+/[^/]+/Library/Application Support/Collaboration/com.apple.iWork/" #"^/private/var/[-0-9A-F]+/Containers/Data/[^/]+/[^/]+/Library/Application Support/Collaboration/com.apple.iWork/" #"^/private/var/Users/[^/]+/Containers/Data/[^/]+/[^/]+/Library/Application Support/Collaboration/com.apple.iWork/")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(extension com.apple.sandbox.application-group)
+		(require-not (regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/.com.apple."))
+		(literal "/private/var/")
+		(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/[.]com[.]apple[.]" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/[.]com[.]apple[.]" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/[.]com[.]apple[.]" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/[.]com[.]apple[.]")
+		(require-not (subpath-prefix "${FRONT_USER_HOME}")))
+	(require-all
+		(vnode-type REGULAR-FILE)
+		(subpath-prefix "${HOME}/Library/Caches/com.apple.nsurlsessiond/Downloads/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+	(require-all
+		(vnode-type DIRECTORY)
+		(subpath-prefix "${HOME}/Library/Caches/com.apple.nsurlsessiond/Downloads/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+	(require-all
+		(extension com.apple.sandbox.application-group)
+		(require-any
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/")
+			(require-all
+				(literal "/private/var/")
+				(require-any
+					(extension com.apple.app-sandbox.read)
+					(extension com.apple.app-sandbox.read-write)
+					(extension com.apple.security.exception.files.absolute-path.read-only)
+					(extension com.apple.security.exception.files.absolute-path.read-write)
+					(require-all
+						(literal "/private/var/PersonaVolumes/")
+						(regex #"^/private/var/PersonaVolumes/[^/]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/PersonaVolumes/[^/]+/Containers/Shared/AppGroup/[^/]+$"))
+					(require-all
+						(subpath-prefix "${FRONT_USER_HOME}")
+						(require-any
+							(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/")
+							(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+$")))
+					(require-all
+						(require-any (subpath "/private/var/hardware/FactoryData")
+(literal "/usr/standalone/firmware/apticket.der"))
+						(require-any (literal "/System/Library/Caches/apticket.der")
+(subpath "/System/Library/Caches/com.apple.factorydata")
+(subpath "/System/Library/Caches/com.apple.kernelcaches"))))))))
+(allow file-read-data
+	(require-all
+		(vnode-type REGULAR-FILE)
+		(require-any
+			(require-all
+				(require-any (subpath "/private/var/.DocumentRevisions-V100/staging")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]/[UNSUPPORTED]DocumentRevisions-V100/staging/?")
+(subpath-prefix "${FRONT_USER_HOME}/.DocumentRevisions-V100/staging"))
+				(extension com.apple.revisiond.staging))
+			(require-all
+				(require-any (subpath "/private/var/.DocumentRevisions-V100/PerUID")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]/[UNSUPPORTED]DocumentRevisions-V100/PerUID/?")
+(subpath-prefix "${FRONT_USER_HOME}/.DocumentRevisions-V100/PerUID"))
+				(extension com.apple.revisiond.revision))))
+	(require-all
+		(vnode-type DIRECTORY)
+		(require-any
+			(require-all
+				(require-any (subpath "/private/var/.DocumentRevisions-V100/staging")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]/[UNSUPPORTED]DocumentRevisions-V100/staging/?")
+(subpath-prefix "${FRONT_USER_HOME}/.DocumentRevisions-V100/staging"))
+				(extension com.apple.revisiond.staging))
+			(require-all
+				(require-any (subpath "/private/var/.DocumentRevisions-V100/PerUID")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]/[UNSUPPORTED]DocumentRevisions-V100/PerUID/?")
+(subpath-prefix "${FRONT_USER_HOME}/.DocumentRevisions-V100/PerUID"))
+				(extension com.apple.revisiond.revision))))
+	(require-all
+		(vnode-type SYMLINK)
+		(require-any
+			(require-all
+				(require-any (subpath "/private/var/.DocumentRevisions-V100/staging")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]/[UNSUPPORTED]DocumentRevisions-V100/staging/?")
+(subpath-prefix "${FRONT_USER_HOME}/.DocumentRevisions-V100/staging"))
+				(extension com.apple.revisiond.staging))
+			(require-all
+				(require-any (subpath "/private/var/.DocumentRevisions-V100/PerUID")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]/[UNSUPPORTED]DocumentRevisions-V100/PerUID/?")
+(subpath-prefix "${FRONT_USER_HOME}/.DocumentRevisions-V100/PerUID"))
+				(extension com.apple.revisiond.revision)))))
+(allow file-read-metadata
+	(require-any (subpath "/private/var/tmp/com.apple.WorkflowKit.BackgroundShortcutRunner")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+	(literal-prefix "${HOME}/Library/PPTDevice")
+	(literal-prefix "${HOME}/Library/Mobile Documents")
+	(literal-prefix "${HOME}/Library")
+	(literal-prefix "${HOME}")
+	(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents")
+	(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library")
+	(literal-prefix "${HOME}/Library/Caches")
+	(subpath-prefix "${HOME}/Library/Caches/com.apple.WorkflowKit.BackgroundShortcutRunner")
+	(literal-prefix "${HOME}/Library/Preferences")
+	(require-all
+		(vnode-type DIRECTORY)
+		(require-any
+			(require-all
+				(literal-prefix "${FRONT_USER_HOME}/Library/DeviceRegistry")
+				(require-any
+					(process-attribute is-apple-signed-executable)
+					(vnode-type DIRECTORY)))
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Library/DeviceRegistry/[-0-9A-Z]+$" #"^/private/var/euser[0-9]+/Library/DeviceRegistry/[-0-9A-Z]+$" #"^/private/var/[-0-9A-F]+/Library/DeviceRegistry/[-0-9A-Z]+$" #"^/private/var/Users/[^/]+/Library/DeviceRegistry/[-0-9A-Z]+$")
+				(subpath-prefix "${FRONT_USER_HOME}")
+				(vnode-type DIRECTORY))
+			(require-all
+				(require-any (literal-prefix "${HOME}/Media/Memories")
+(literal-prefix "${HOME}/Media/MediaAnalysis"))
+				(extension com.apple.shortcuts.access.photos))))
+	(require-all
+		(process-attribute is-apple-signed-executable)
+		(require-any
+			(literal-prefix "${FRONT_USER_HOME}/Library/DeviceRegistry")
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Library/DeviceRegistry/[-0-9A-Z]+$" #"^/private/var/euser[0-9]+/Library/DeviceRegistry/[-0-9A-Z]+$" #"^/private/var/[-0-9A-F]+/Library/DeviceRegistry/[-0-9A-Z]+$" #"^/private/var/Users/[^/]+/Library/DeviceRegistry/[-0-9A-Z]+$")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(require-any (literal-prefix "${HOME}/Media/Memories")
+(literal-prefix "${HOME}/Media/MediaAnalysis"))
+		(extension com.apple.shortcuts.access.photos))
+	(require-all
+		(subpath-prefix "${HOME}/Media/Debug")
+		(extension com.apple.shortcuts.access.photos))
+	(require-all
+		(subpath-prefix "${HOME}/Media/MediaAnalysis")
+		(extension com.apple.shortcuts.access.photos))
+	(require-all
+		(subpath-prefix "${HOME}/Library/HTTPStorages/com.apple.WorkflowKit.BackgroundShortcutRunner")
+		(extension com.apple.shortcuts.access.internet))
+	(require-all
+		(subpath-prefix "${HOME}/Media/PhotoData")
+		(extension com.apple.shortcuts.access.photos))
+	(require-all
+		(subpath-prefix "${HOME}/Media/Memories")
+		(extension com.apple.shortcuts.access.photos))
+	(require-all
+		(subpath-prefix "${FRONT_USER_HOME}/Library/Carrier Bundles")
+		(extension com.apple.shortcuts.access.location))
+	(require-all
+		(vnode-type DIRECTORY)
+		(literal-prefix "${HOME}/Library/HTTPStorages")
+		(require-any
+			(extension com.apple.shortcuts.access.internet)
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents")))
+	(require-all
+		(subpath-prefix "${HOME}/Media/DCIM")
+		(extension com.apple.shortcuts.access.photos))
+	(require-all
+		(literal-prefix "${HOME}/Library/HTTPStorages")
+		(extension com.apple.shortcuts.access.internet))
+	(require-all
+		(literal-prefix "${HOME}/Library/Cookies/com.apple.WorkflowKit.BackgroundShortcutRunner.binarycookies")
+		(extension com.apple.shortcuts.access.internet))
+	(require-all
+		(subpath-prefix "${HOME}/Media/Photos")
+		(extension com.apple.shortcuts.access.photos))
+	(require-all
+		(vnode-type DIRECTORY)
+		(require-any
+			(literal-prefix "${HOME}/Library/Mobile Documents")
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents")))
+	(require-all
+		(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+		(require-any
+			(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+			(extension com.apple.librarian.ubiquity-container)))
+	(require-all
+		(subpath-prefix "${HOME}/Library/Mobile Documents")
+		(require-any
+			(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+			(extension com.apple.librarian.ubiquity-container)))
+	(require-all
+		(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+		(require-any
+			(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+			(extension com.apple.librarian.ubiquity-container)))
+	(require-all
+		(literal "/private/var/")
+		(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+		(subpath-prefix "${FRONT_USER_HOME}")
+		(require-any
+			(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+			(extension com.apple.librarian.ubiquity-container)))
+	(require-all
+		(vnode-type REGULAR-FILE)
+		(require-any
+			(require-all
+				(require-any (subpath "/private/var/.DocumentRevisions-V100/staging")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]/[UNSUPPORTED]DocumentRevisions-V100/staging/?")
+(subpath-prefix "${FRONT_USER_HOME}/.DocumentRevisions-V100/staging"))
+				(extension com.apple.revisiond.staging))
+			(require-all
+				(require-any (subpath "/private/var/.DocumentRevisions-V100/PerUID")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]/[UNSUPPORTED]DocumentRevisions-V100/PerUID/?")
+(subpath-prefix "${FRONT_USER_HOME}/.DocumentRevisions-V100/PerUID"))
+				(extension com.apple.revisiond.revision))))
+	(require-all
+		(extension com.apple.sandbox.application-group)
+		(require-any
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/")
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(vnode-type DIRECTORY)
+		(require-any
+			(require-all
+				(require-any (subpath "/private/var/.DocumentRevisions-V100/staging")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]/[UNSUPPORTED]DocumentRevisions-V100/staging/?")
+(subpath-prefix "${FRONT_USER_HOME}/.DocumentRevisions-V100/staging"))
+				(extension com.apple.revisiond.staging))
+			(require-all
+				(require-any (subpath "/private/var/.DocumentRevisions-V100/PerUID")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]/[UNSUPPORTED]DocumentRevisions-V100/PerUID/?")
+(subpath-prefix "${FRONT_USER_HOME}/.DocumentRevisions-V100/PerUID"))
+				(extension com.apple.revisiond.revision))))
+	(require-all
+		(vnode-type SYMLINK)
+		(require-any
+			(require-all
+				(require-any (subpath "/private/var/.DocumentRevisions-V100/staging")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]/[UNSUPPORTED]DocumentRevisions-V100/staging/?")
+(subpath-prefix "${FRONT_USER_HOME}/.DocumentRevisions-V100/staging"))
+				(extension com.apple.revisiond.staging))
+			(require-all
+				(require-any (subpath "/private/var/.DocumentRevisions-V100/PerUID")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]/[UNSUPPORTED]DocumentRevisions-V100/PerUID/?")
+(subpath-prefix "${FRONT_USER_HOME}/.DocumentRevisions-V100/PerUID"))
+				(extension com.apple.revisiond.revision)))))
+(delegate (with no-report) file-revoke)
+(delegate (with no-report) file-search)
+(allow file-test-existence)
+(delegate (with no-report) file-unmount)
+(allow file-write*
+	(require-any (subpath "/private/var/tmp/com.apple.WorkflowKit.BackgroundShortcutRunner")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+	(subpath-prefix "${HOME}/Library/SyncedIntentDefinitions")
+	(subpath-prefix "${HOME}/Library/Caches/com.apple.WorkflowKit.BackgroundShortcutRunner")
+	(require-all
+		(literal "/private/var/")
+		(subpath-prefix "${HOME}")
+		(extension com.apple.shortcuts.access.music-library)
+		(extension com.apple.tcc.kTCCServiceMediaLibrary)
+		(require-any
+			(regex #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal")
+			(require-all
+				(vnode-type DIRECTORY)
+				(regex #"^/private/var/mobile/Media/iTunes_Control/iTunes$" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes$" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes$" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes$" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes$"))))
+	(require-all
+		(extension com.apple.shortcuts.access.photos)
+		(require-any
+			(subpath-prefix "${HOME}/Media/Debug")
+			(subpath-prefix "${HOME}/Media/MediaAnalysis")
+			(subpath-prefix "${HOME}/Media/PhotoData")
+			(subpath-prefix "${HOME}/Media/Memories")
+			(subpath-prefix "${HOME}/Media/DCIM")
+			(subpath-prefix "${HOME}/Media/Photos")))
+	(require-all
+		(literal-prefix "${ANY_USER_HOME}/Library/Caches/GeoServices/tguid.bin")
+		(require-not (extension com.apple.shortcuts.access.location)))
+	(require-all
+		(require-any (subpath-prefix "${HOME}/Library/WebKit/com.apple.WorkflowKit.BackgroundShortcutRunner")
+(literal-prefix "${HOME}/Library/Cookies/com.apple.WorkflowKit.BackgroundShortcutRunner.binarycookies")
+(subpath-prefix "${HOME}/Library/HTTPStorages/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+		(extension com.apple.shortcuts.access.internet))
+	(require-all
+		(vnode-type REGULAR-FILE)
+		(literal-prefix "${HOME}/Library/AddressBook/")
+		(entitlement-is-bool-true com.apple.Contacts.database-allow)
+		(extension com.apple.shortcuts.access.contacts)
+		(extension com.apple.tcc.kTCCServiceAddressBook))
+	(require-all
+		(subpath-prefix "${HOME}/Library/AddressBook/Delegates")
+		(entitlement-is-bool-true com.apple.Contacts.database-allow)
+		(extension com.apple.shortcuts.access.contacts)
+		(extension com.apple.tcc.kTCCServiceAddressBook))
+	(require-all
+		(subpath-prefix "${HOME}/Library/Mobile Documents")
+		(require-any
+			(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+			(extension com.apple.librarian.ubiquity-container)))
+	(require-all
+		(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+		(require-any
+			(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+			(extension com.apple.librarian.ubiquity-container)))
+	(require-all
+		(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+		(require-any
+			(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+			(extension com.apple.librarian.ubiquity-container)))
+	(require-all
+		(vnode-type REGULAR-FILE)
+		(require-any (subpath "/private/var/.DocumentRevisions-V100/staging")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]/[UNSUPPORTED]DocumentRevisions-V100/staging/?")
+(subpath-prefix "${FRONT_USER_HOME}/.DocumentRevisions-V100/staging"))
+		(extension com.apple.revisiond.staging))
+	(require-all
+		(literal "/private/var/")
+		(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+		(subpath-prefix "${FRONT_USER_HOME}")
+		(require-any
+			(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+			(extension com.apple.librarian.ubiquity-container)))
+	(require-all
+		(extension com.apple.fileprovider.read-write)
+		(require-any
+			(require-any (subpath-prefix "${ANY_USER_HOME}/tmp/com.apple.fileproviderd")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/tmp/com[UNSUPPORTED]apple[UNSUPPORTED]fileproviderd/?"))
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/Library/Application Support/Collaboration/com.apple.iWork/" #"^/private/var/euser[0-9]+/Containers/Data/[^/]+/[^/]+/Library/Application Support/Collaboration/com.apple.iWork/" #"^/private/var/[-0-9A-F]+/Containers/Data/[^/]+/[^/]+/Library/Application Support/Collaboration/com.apple.iWork/" #"^/private/var/Users/[^/]+/Containers/Data/[^/]+/[^/]+/Library/Application Support/Collaboration/com.apple.iWork/")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(vnode-type DIRECTORY)
+		(require-any (subpath "/private/var/.DocumentRevisions-V100/staging")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]/[UNSUPPORTED]DocumentRevisions-V100/staging/?")
+(subpath-prefix "${FRONT_USER_HOME}/.DocumentRevisions-V100/staging"))
+		(extension com.apple.revisiond.staging))
+	(require-all
+		(vnode-type SYMLINK)
+		(require-any (subpath "/private/var/.DocumentRevisions-V100/staging")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]/[UNSUPPORTED]DocumentRevisions-V100/staging/?")
+(subpath-prefix "${FRONT_USER_HOME}/.DocumentRevisions-V100/staging"))
+		(extension com.apple.revisiond.staging))
+	(require-all
+		(extension com.apple.sandbox.application-group)
+		(require-not (regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/.com.apple."))
+		(require-any
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/")
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/[.]com[.]apple[.]" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/[.]com[.]apple[.]" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/[.]com[.]apple[.]" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/[.]com[.]apple[.]")
+				(require-not (subpath-prefix "${FRONT_USER_HOME}")))
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(vnode-type REGULAR-FILE)
+		(subpath-prefix "${HOME}/Library/Caches/com.apple.nsurlsessiond/Downloads/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+	(require-all
+		(vnode-type DIRECTORY)
+		(subpath-prefix "${HOME}/Library/Caches/com.apple.nsurlsessiond/Downloads/com.apple.WorkflowKit.BackgroundShortcutRunner")))
+(allow file-write-create
+	(require-any (subpath "/private/var/tmp/com.apple.WorkflowKit.BackgroundShortcutRunner")
+(subpath-prefix "${PROCESS_TEMP_DIR}/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+	(subpath-prefix "${HOME}/Library/SyncedIntentDefinitions")
+	(subpath-prefix "${HOME}/Library/Caches/com.apple.WorkflowKit.BackgroundShortcutRunner")
+	(require-all
+		(vnode-type DIRECTORY)
+		(require-any
+			(require-all
+				(process-attribute is-apple-signed-executable)
+				(require-any
+					(literal-prefix "${FRONT_USER_HOME}/Library/DeviceRegistry")
+					(require-all
+						(literal "/private/var/")
+						(regex #"^/private/var/mobile/Library/DeviceRegistry/[-0-9A-Z]+$" #"^/private/var/euser[0-9]+/Library/DeviceRegistry/[-0-9A-Z]+$" #"^/private/var/[-0-9A-F]+/Library/DeviceRegistry/[-0-9A-Z]+$" #"^/private/var/Users/[^/]+/Library/DeviceRegistry/[-0-9A-Z]+$")
+						(subpath-prefix "${FRONT_USER_HOME}"))))
+			(require-all
+				(require-any (literal-prefix "${HOME}/Media/Memories")
+(literal-prefix "${HOME}/Media/MediaAnalysis"))
+				(extension com.apple.shortcuts.access.photos))
+			(require-all
+				(literal-prefix "${HOME}/Library/HTTPStorages")
+				(extension com.apple.shortcuts.access.internet))))
+	(require-all
+		(literal-prefix "${HOME}/Library/Logs/CrashReporter/CFNetwork_")
+		(require-not (extension com.apple.shortcuts.access.internet)))
+	(require-all
+		(vnode-type DIRECTORY)
+		(require-any
+			(literal-prefix "${HOME}/Library/Mobile Documents")
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents")
+			(literal-prefix "${HOME}/Library/Caches")))
+	(require-all
+		(vnode-type REGULAR-FILE)
+		(require-any
+			(subpath "/private/var/tmp")
+			(subpath-prefix "${PROCESS_TEMP_DIR}")))
+	(require-all
+		(literal "/private/var/")
+		(require-any
+			(require-all
+				(extension com.apple.sandbox.application-group)
+				(require-any
+					(require-all
+						(literal "/private/var/PersonaVolumes/")
+						(require-not (regex #"^/private/var/PersonaVolumes/[^/]+/Containers/Shared/AppGroup/[^/]+/Library$" #"^/private/var/PersonaVolumes/[^/]+/Containers/Shared/AppGroup/[^/]+/Library/Preferences$")))
+					(require-all
+						(subpath-prefix "${FRONT_USER_HOME}")
+						(require-not (regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/Library$" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/Library/Preferences$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/Library(/Preferences)?$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/Library(/Preferences)?$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/Library(/Preferences)?$")))
+					(require-all
+						(vnode-type DIRECTORY)
+						(literal-prefix "${HOME}/Library/Caches"))))
+			(require-all
+				(subpath-prefix "${HOME}")
+				(extension com.apple.shortcuts.access.music-library)
+				(extension com.apple.tcc.kTCCServiceMediaLibrary)
+				(require-any
+					(regex #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-journal" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-shm" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes/MediaLibrary.sqlitedb-wal")
+					(require-all
+						(vnode-type DIRECTORY)
+						(regex #"^/private/var/mobile/Media/iTunes_Control/iTunes$" #"^/private/var/mobile/Media/[^/]+/iTunes_Control/iTunes$" #"^/private/var/euser[0-9]+/Media/([^/]+/)?iTunes_Control/iTunes$" #"^/private/var/[-0-9A-F]+/Media/([^/]+/)?iTunes_Control/iTunes$" #"^/private/var/Users/[^/]+/Media/([^/]+/)?iTunes_Control/iTunes$"))))))
+	(require-all
+		(extension com.apple.shortcuts.access.photos)
+		(require-any
+			(subpath-prefix "${HOME}/Media/Debug")
+			(subpath-prefix "${HOME}/Media/MediaAnalysis")
+			(subpath-prefix "${HOME}/Media/PhotoData")
+			(subpath-prefix "${HOME}/Media/Memories")
+			(subpath-prefix "${HOME}/Media/DCIM")
+			(subpath-prefix "${HOME}/Media/Photos")))
+	(require-all
+		(literal-prefix "${ANY_USER_HOME}/Library/Caches/GeoServices/tguid.bin")
+		(extension com.apple.shortcuts.access.location))
+	(require-all
+		(require-any (subpath-prefix "${HOME}/Library/WebKit/com.apple.WorkflowKit.BackgroundShortcutRunner")
+(literal-prefix "${HOME}/Library/Cookies/com.apple.WorkflowKit.BackgroundShortcutRunner.binarycookies")
+(subpath-prefix "${HOME}/Library/HTTPStorages/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+		(extension com.apple.shortcuts.access.internet))
+	(require-all
+		(vnode-type REGULAR-FILE)
+		(literal-prefix "${HOME}/Library/AddressBook/")
+		(entitlement-is-bool-true com.apple.Contacts.database-allow)
+		(extension com.apple.shortcuts.access.contacts)
+		(extension com.apple.tcc.kTCCServiceAddressBook))
+	(require-all
+		(subpath-prefix "${HOME}/Library/AddressBook/Delegates")
+		(entitlement-is-bool-true com.apple.Contacts.database-allow)
+		(extension com.apple.shortcuts.access.contacts)
+		(extension com.apple.tcc.kTCCServiceAddressBook))
+	(require-all
+		(subpath-prefix "${HOME}/Library/Mobile Documents")
+		(require-any
+			(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+			(extension com.apple.librarian.ubiquity-container)))
+	(require-all
+		(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+		(require-any
+			(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+			(extension com.apple.librarian.ubiquity-container)))
+	(require-all
+		(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+		(require-any
+			(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+			(extension com.apple.librarian.ubiquity-container)))
+	(require-all
+		(literal "/private/var/")
+		(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+		(subpath-prefix "${FRONT_USER_HOME}")
+		(require-any
+			(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+			(extension com.apple.librarian.ubiquity-container)))
+	(require-all
+		(vnode-type REGULAR-FILE)
+		(require-any (subpath "/private/var/.DocumentRevisions-V100/staging")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]/[UNSUPPORTED]DocumentRevisions-V100/staging/?")
+(subpath-prefix "${FRONT_USER_HOME}/.DocumentRevisions-V100/staging"))
+		(extension com.apple.revisiond.staging))
+	(require-all
+		(vnode-type DIRECTORY)
+		(require-any (subpath "/private/var/.DocumentRevisions-V100/staging")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]/[UNSUPPORTED]DocumentRevisions-V100/staging/?")
+(subpath-prefix "${FRONT_USER_HOME}/.DocumentRevisions-V100/staging"))
+		(extension com.apple.revisiond.staging))
+	(require-all
+		(extension com.apple.fileprovider.read-write)
+		(require-any
+			(require-any (subpath-prefix "${ANY_USER_HOME}/tmp/com.apple.fileproviderd")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/tmp/com[UNSUPPORTED]apple[UNSUPPORTED]fileproviderd/?"))
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Data/[^/]+/[^/]+/Library/Application Support/Collaboration/com.apple.iWork/" #"^/private/var/euser[0-9]+/Containers/Data/[^/]+/[^/]+/Library/Application Support/Collaboration/com.apple.iWork/" #"^/private/var/[-0-9A-F]+/Containers/Data/[^/]+/[^/]+/Library/Application Support/Collaboration/com.apple.iWork/" #"^/private/var/Users/[^/]+/Containers/Data/[^/]+/[^/]+/Library/Application Support/Collaboration/com.apple.iWork/")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(vnode-type SYMLINK)
+		(require-any (subpath "/private/var/.DocumentRevisions-V100/staging")
+(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]/[UNSUPPORTED]DocumentRevisions-V100/staging/?")
+(subpath-prefix "${FRONT_USER_HOME}/.DocumentRevisions-V100/staging"))
+		(extension com.apple.revisiond.staging))
+	(require-all
+		(extension com.apple.sandbox.application-group)
+		(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/.com.apple.")
+		(require-any
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/")
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/[.]com[.]apple[.]" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/[.]com[.]apple[.]" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/[.]com[.]apple[.]" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/[.]com[.]apple[.]")
+				(subpath-prefix "${FRONT_USER_HOME}"))
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(vnode-type REGULAR-FILE)
+		(subpath-prefix "${HOME}/Library/Caches/com.apple.nsurlsessiond/Downloads/com.apple.WorkflowKit.BackgroundShortcutRunner"))
+	(require-all
+		(vnode-type DIRECTORY)
+		(subpath-prefix "${HOME}/Library/Caches/com.apple.nsurlsessiond/Downloads/com.apple.WorkflowKit.BackgroundShortcutRunner")))
+(deny file-write-setugid)
+(allow file-write-unlink
+	(entitlement-is-present com.apple.private.oop-jit.loader)
+	(require-all
+		(vnode-type REGULAR-FILE)
+		(require-any
+			(subpath "/private/var/tmp")
+			(subpath-prefix "${PROCESS_TEMP_DIR}")))
+	(require-all
+		(subpath-prefix "${FRONT_USER_HOME}/Library/IdentityServices")
+		(extension com.apple.identityservices.deliver))
+	(require-all
+		(extension com.apple.sandbox.oopjit)
+		(subpath "/private/var/OOPJit")))
+(allow fs-quota*)
+(allow fs-quota-get)
+(allow fs-quota-on)
+(allow fs-quota-off)
+(allow fs-quota-set*)
+(allow fs-quota-set-limits)
+(allow fs-quota-set-usage)
+(allow fs-quota-stat)
+(allow fs-quota-sync)
+(delegate (with no-report) fs-rename)
+(delegate (with no-report) fs-snapshot*)
+(delegate (with no-report) fs-snapshot-create)
+(delegate (with no-report) fs-snapshot-delete)
+(allow fs-snapshot-mount)
+(delegate (with no-report) fs-snapshot-revert)
+(allow generic-issue-extension
+	(extension-class "com.apple.webkit.mach-bootstrap"))
+(delegate (with no-report) qtn-user)
+(delegate (with no-report) hid-control)
+(delegate (with no-report) iokit*)
+(allow iokit-get-properties)
+(allow iokit-issue-extension
+	(extension-class "com.apple.webkit.extension.iokit"))
+(delegate (with no-report) iokit-open*)
+(allow iokit-open-user-client
+	(iokit-user-client-class "AppleKeyStoreUserClient")
+	(iokit-user-client-class "AppleJPEGDriverUserClient")
+	(iokit-user-client-class "IOSurfaceAcceleratorClient")
+	(iokit-user-client-class "AGXDevice")
+	(iokit-user-client-class "RootDomainUserClient")
+	(iokit-user-client-class "IOSurfaceRootUserClient")
+	(extension com.apple.security.exception.iokit-user-client-class)
+	(iokit-user-client-class "AGXCommandQueue")
+	(iokit-user-client-class "IOMobileFramebufferUserClient")
+	(require-any (iokit-connection "IOGPU")
+(iokit-connection "IOGraphicsAccelerator2"))
+	(iokit-user-client-class "IOGPUDeviceUserClient")
+	(require-any (iokit-user-client-class "IOAccelDevice2")
+(iokit-user-client-class "IOAccelContext2")
+(iokit-user-client-class "IOAccelSharedUserClient2"))
+	(require-any (iokit-user-client-class "IOAccelDevice")
+(iokit-user-client-class "IOAccelContext")
+(iokit-user-client-class "IOAccelSubmitter2")
+(iokit-user-client-class "IOAccelSharedUserClient"))
+	(iokit-user-client-class "AGXSharedUserClient")
+	(iokit-user-client-class "AppleKeyStoreUserClient")
+	(require-any (iokit-user-client-class "H11ANEInDirectPathClient")
+(iokit-user-client-class "AppleVirtIONeuralEngineDeviceUserClient"))
+	(iokit-user-client-class "ANEClientHintsUserClient")
+	(require-all
+		(debug-mode)
+		(iokit-user-client-class "IOSurfaceAcceleratorParavirtClient")))
+(allow iokit-open-service)
+(allow iokit-set-properties
+	(iokit-user-client-class "ANEClientHintsUserClient"))
+(delegate (with no-report) ipc*)
+(delegate (with no-report) ipc-posix*)
+(allow ipc-posix-sem*
+	(extension com.apple.sandbox.application-group))
+(allow ipc-posix-shm-read-data
+	(require-all
+		(extension com.apple.shortcuts.access.internet)
+		(ipc-posix-name "/com.apple.AppSSO.version"))
+	(require-all
+		(ipc-posix-name "apple.shm.notification_center")
+		(require-not (entitlement-is-bool-true com.apple.security.on-demand-install-capable))))
+(delegate (with no-report) ipc-sysv*)
+(delegate (with no-report) ipc-sysv-msg)
+(delegate (with no-report) ipc-sysv-sem)
+(delegate (with no-report) ipc-sysv-shm)
+(deny job-creation)
+(delegate (with no-report) mach*)
+(allow mach-bootstrap)
+(allow mach-cross-domain-lookup)
+(allow mach-derive-port)
+(delegate (with no-report) mach-host*)
+(delegate (with no-report) mach-host-exception-port-set)
+(delegate (with no-report) mach-host-special-port-set)
+(allow mach-issue-extension
+	(extension-class "com.apple.webkit.extension.mach"))
+(allow mach-lookup
+	(global-name "com.apple.securityd")
+	(global-name "com.apple.CarPlayApp.service")
+	(global-name "com.apple.coremedia.compressionsession")
+	(global-name "com.apple.voiceservices.tts")
+	(require-any (global-name "com.apple.coremedia.videocodecd.decompressionsession")
+(global-name "com.apple.coremedia.videocodecd.decompressionsession.xpc"))
+	(global-name "com.apple.BTServer.le")
+	(global-name "com.apple.coreduetd.context")
+	(global-name "com.apple.audio.AudioComponentPrefs")
+	(global-name "com.apple.WebBookmarks.webbookmarksd")
+	(global-name "com.apple.coremedia.decompressionsession")
+	(require-any (global-name "com.apple.Photos.MultiLibrary")
+(global-name "com.apple.ShazamKit.ShazamXPCService")
+(global-name "com.apple.shortcuts.dialogpresentation"))
+	(global-name "com.apple.commcenter.xpc")
+	(require-any (global-name "com.apple.coremedia.mediaparserd.mutablemovie.xpc")
+(global-name "com.apple.coremedia.mediaplaybackd.mutablemovie.xpc")
+(global-name "com.apple.coremedia.mediaplaybackd.mutablecomposition.xpc"))
+	(global-name "com.apple.safarifetcherd")
+	(extension com.apple.security.exception.mach-lookup.local-name)
+	(global-name "com.apple.assistant.dictation")
+	(global-name "com.apple.coremedia.videocodecd.compressionsession")
+	(global-name "com.apple.SystemConfiguration.configd")
+	(global-name "com.apple.email.maild")
+	(global-name "com.apple.coremedia.videocodecd.compressionsession.xpc")
+	(require-any (global-name "com.apple.shazamd")
+(global-name "com.apple.SiriTTSService.TrialProxy"))
+	(global-name "com.apple.accountsd.accountmanager")
+	(global-name "com.apple.audio.AudioQueueServer")
+	(require-any (xpc-service-name "com.apple.WebKit.WebContent")
+(xpc-service-name "com.apple.WebKit.Networking"))
+	(global-name "com.apple.mobilemail.services.xpc")
+	(global-name "com.apple.private.corewifi-xpc")
+	(global-name "com.apple.SharingServices")
+	(global-name "com.apple.audio.AudioComponentRegistrar")
+	(require-any (global-name "com.apple.linkd.extension")
+(global-name "com.apple.CarPlayApp.non-launching-service"))
+	(global-name "com.apple.linkd.transcript")
+	(global-name "com.apple.fontservicesd")
+	(global-name "com.apple.iconservices")
+	(global-name "com.apple.xpc.amsaccountsd")
+	(global-name "com.apple.locationd.registration")
+	(require-any (global-name "com.apple.accountsd.authmanager")
+(global-name "com.apple.accountsd.accessmanager"))
+	(global-name "com.apple.kvsd")
+	(global-name "com.apple.donotdisturb.service.non-launching")
+	(extension com.apple.security.exception.mach-lookup.global-name)
+	(global-name "com.apple.usernotifications.usernotificationservice")
+	(global-name "com.apple.backboard.hid.services")
+	(global-name "com.apple.telephonyutilities.callservicesdaemon.callstatecontroller")
+	(global-name "com.apple.voiceservices.keepalive")
+	(global-name "com.apple.donotdisturb.service")
+	(global-name "com.apple.accountsd.oauthsigner")
+	(xpc-service-name "com.apple.WebKit.GPU")
+	(xpc-service-name "com.apple.MapKit.SnapshotService")
+	(global-name "com.apple.pasteboard.pasted")
+	(global-name "com.apple.coremedia.bytestream.xpc")
+	(global-name "com.apple.amsaccountsd.multiuser")
+	(global-name "com.apple.pairedsyncd.syncstate")
+	(require-any (xpc-service-name "com.apple.WebKit.Model")
+(xpc-service-name "com.apple.WebKit.WebContent.CaptivePortal"))
+	(xpc-service-name "com.apple.coremedia.decompressionsession.xpc")
+	(global-name "com.apple.linkd.autoShortcut")
+	(global-name "com.apple.backboard.hid-services.xpc")
+	(global-name "com.apple.siri.VoiceShortcuts.xpc")
+	(global-name "com.apple.nano.nanoregistry.paireddeviceregistry")
+	(xpc-service-name "com.apple.coremedia.compressionsession.xpc")
+	(global-name "com.apple.ProgressReporting")
+	(global-name "com.apple.audio.SystemSoundServer-iOS")
+	(global-name "com.apple.usernotifications.listener")
+	(global-name "com.apple.frontboard.systemappservices")
+	(global-name "com.apple.linkd.registry")
+	(xpc-service-name "com.apple.intents.intents-helper")
+	(xpc-service-name)
+	(xpc-service-name "com.apple.textkit.nsattributedstringagent")
+	(xpc-service-name "com.apple.WebKit.WebAuthn")
+	(xpc-service-name "com.apple.MTLCompilerService")
+	(xpc-service-name-regex #".+")
+	(require-all
+		(extension com.apple.shortcuts.access.internet)
+		(require-any
+			(global-name "com.apple.SystemConfiguration.DNSConfiguration")
+			(global-name "com.apple.networkscored")
+			(global-name "com.apple.SystemConfiguration.NetworkInformation")
+			(global-name "com.apple.SystemConfiguration.helper")
+			(global-name "com.apple.GSSCred")
+			(global-name "com.apple.cfnetwork.cfnetworkagent")
+			(global-name "com.apple.nehelper")
+			(global-name "com.apple.nesessionmanager")
+			(global-name "com.apple.networkserviceproxy.fetch-token")
+			(global-name "com.apple.dnssd.service")
+			(global-name "com.apple.usymptomsd")
+			(global-name "com.apple.trustd")
+			(global-name "com.apple.SystemConfiguration.PPPController")
+			(global-name "com.apple.commcenter.cupolicy.xpc")
+			(global-name "com.apple.nsurlsessiond")
+			(global-name "com.apple.symptomsd")
+			(global-name "com.apple.AppSSO.service-xpc")
+			(global-name "com.apple.symptoms.symptomsd.managed_events")
+			(global-name "com.apple.networkd")
+			(global-name "com.apple.cfnetwork.AuthBrokerAgent")
+			(global-name "com.apple.SystemConfiguration.SCNetworkReachability")
+			(global-name "com.apple.commcenter.coretelephony.xpc")
+			(require-all
+				(global-name "com.apple.ak.auth.xpc")
+				(require-any
+					(process-attribute is-apple-signed-executable)
+					(entitlement-is-bool-true com.apple.authkit.client)
+					(entitlement-is-bool-true com.apple.authkit.client.private)
+					(entitlement-is-bool-true com.apple.authkit.client.internal)))
+			(require-all
+				(global-name "com.apple.ak.anisette.xpc")
+				(require-any
+					(process-attribute is-apple-signed-executable)
+					(entitlement-is-bool-true com.apple.authkit.client)
+					(entitlement-is-bool-true com.apple.authkit.client.private)
+					(entitlement-is-bool-true com.apple.authkit.client.internal)))
+			(require-all
+				(global-name "com.apple.networkd_privileged")
+				(require-any
+					(entitlement-is-bool-true com.apple.networkd.modify_settings)
+					(entitlement-is-bool-true com.apple.networkd.disable_opportunistic)
+					(entitlement-is-bool-true com.apple.networkd.advisory_socket)
+					(entitlement-is-bool-true com.apple.networkd_privileged)
+					(entitlement-is-bool-true com.apple.networkd.persistent_interface)))))
+	(require-all
+		(global-name "com.apple.CARenderServer")
+		(extension com.apple.shortcuts.access.screenshot))
+	(require-all
+		(global-name "com.apple.remindd")
+		(extension com.apple.shortcuts.access.reminder))
+	(require-all
+		(global-name "com.apple.vibrationmanagerd")
+		(extension com.apple.shortcuts.access.photos))
+	(require-all
+		(extension com.apple.shortcuts.access.photos)
+		(require-any
+			(xpc-service-name "com.apple.tonelibraryd")
+			(global-name "com.apple.nanoprefsync")
+			(global-name "com.apple.FileCoordination")
+			(global-name "com.apple.assetsd.changehub")
+			(global-name "com.apple.photos.service")
+			(global-name "com.apple.PersistentURLTranslator.Gatekeeper")))
+	(require-all
+		(extension com.apple.shortcuts.access.location)
+		(require-any
+			(require-any (global-name "com.apple.geod")
+(global-name "com.apple.nanomaps.xpc.GeoServices"))
+			(global-name "com.apple.locationd.synchronous")
+			(global-name "com.apple.locationd.registration")
+			(global-name "com.apple.geoanalyticsd")))
+	(require-all
+		(global-name "com.apple.mobilecheckpoint.checkpointd")
+		(extension com.apple.shortcuts.access.photos))
+	(require-all
+		(global-name "com.apple.homed.xpc")
+		(extension com.apple.shortcuts.access.home))
+	(require-all
+		(global-name "com.apple.fairplayd.versioned")
+		(extension com.apple.shortcuts.access.music-library))
+	(require-all
+		(global-name "com.apple.fairplayd")
+		(extension com.apple.shortcuts.access.music-library))
+	(require-all
+		(global-name "com.apple.medialibraryd.xpc")
+		(extension com.apple.shortcuts.access.music-library))
+	(require-all
+		(global-name "com.apple.healthd.restriction")
+		(extension com.apple.shortcuts.access.health))
+	(require-all
+		(global-name "com.apple.Music.MPMusicPlayerControllerInternal")
+		(extension com.apple.shortcuts.access.music-library))
+	(require-all
+		(global-name "com.apple.itunescloudd.xpc")
+		(extension com.apple.shortcuts.access.music-library))
+	(require-all
+		(global-name "com.apple.healthd.server")
+		(extension com.apple.shortcuts.access.health))
+	(require-all
+		(global-name "com.apple.locationd.spi")
+		(extension com.apple.shortcuts.access.location))
+	(require-all
+		(global-name "com.apple.contactsd")
+		(extension com.apple.shortcuts.access.contacts))
+	(require-all
+		(global-name "com.apple.spotlight.IndexDelegateAgent")
+		(extension com.apple.shortcuts.access.contacts))
+	(require-all
+		(global-name "com.apple.spotlight.IndexAgent")
+		(extension com.apple.shortcuts.access.contacts))
+	(require-all
+		(global-name "com.apple.identityservicesd.idquery.embedded.auth")
+		(extension com.apple.shortcuts.access.contacts))
+	(require-all
+		(global-name "com.apple.ABDatabaseDoctor")
+		(extension com.apple.shortcuts.access.contacts))
+	(require-all
+		(global-name "com.apple.telephonyutilities.callservicesdaemon.callcapabilities")
+		(extension com.apple.shortcuts.access.contacts))
+	(require-all
+		(global-name "com.apple.cmfsyncagent.embedded.auth")
+		(extension com.apple.shortcuts.access.contacts))
+	(require-all
+		(global-name "com.apple.calaccessd")
+		(extension com.apple.shortcuts.access.calendar))
+	(require-all
+		(global-name "com.apple.calaccessd.xpc")
+		(extension com.apple.shortcuts.access.calendar))
+	(require-all
+		(global-name "com.apple.remindd")
+		(extension com.apple.shortcuts.access.calendar)))
+(delegate (with no-report) mach-priv*)
+(delegate (with no-report) mach-priv-host-port)
+(delegate (with no-report) mach-priv-task-port)
+(allow mach-register
+	(extension com.apple.security.exception.mach-register.local-name)
+	(extension com.apple.security.exception.mach-register.global-name))
+(delegate (with no-report) mach-task*)
+(allow mach-task-exception-port-set)
+(allow mach-task-special-port*)
+(allow mach-task-special-port-get)
+(allow mach-task-special-port-set)
+(allow necp-client-open)
+(allow network*
+	(require-all
+		(require-not (literal "/private/var/tmp/ubiquity.socket"))
+		(literal-prefix "${FRONT_USER_HOME}/tmp/ubiquity.socket")))
+(allow network-inbound
+	(require-all
+		(entitlement-is-bool-true com.apple.developer.networking.multicast)
+		(extension com.apple.shortcuts.access.internet))
+	(require-all
+		(extension com.apple.app-sandbox.read-write)
+		(require-any
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+			(subpath-prefix "${HOME}/Library/Mobile Documents")))
+	(require-all
+		(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+		(require-any
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+			(subpath-prefix "${HOME}/Library/Mobile Documents")
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(extension com.apple.librarian.ubiquity-container)
+		(require-any
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+			(subpath-prefix "${HOME}/Library/Mobile Documents")
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(extension com.apple.sandbox.application-group)
+		(require-any
+			(literal-prefix "${FRONT_USER_HOME}/tmp/ubiquity.socket")
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/")
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/")
+				(subpath-prefix "${FRONT_USER_HOME}")))))
+(allow network-outbound
+	(control-name "com.apple.flow-divert")
+	(extension com.apple.shortcuts.access.internet)
+	(require-all
+		(extension com.apple.app-sandbox.read-write)
+		(require-any
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+			(subpath-prefix "${HOME}/Library/Mobile Documents")))
+	(require-all
+		(entitlement-is-bool-true com.apple.private.librarian.container-proxy)
+		(require-any
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+			(subpath-prefix "${HOME}/Library/Mobile Documents")
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(extension com.apple.librarian.ubiquity-container)
+		(require-any
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Data/[UNSUPPORTED]+/[UNSUPPORTED]+/Library/Mobile Documents/?")
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/File Provider Storage/?")
+			(subpath-prefix "${HOME}/Library/Mobile Documents")
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/File Provider Storage$")
+				(subpath-prefix "${FRONT_USER_HOME}"))))
+	(require-all
+		(extension com.apple.sandbox.application-group)
+		(require-any
+			(literal-prefix "${FRONT_USER_HOME}/tmp/ubiquity.socket")
+			(regex #"/private/var/PersonaVolumes/[UNSUPPORTED]+/Containers/Shared/AppGroup/[UNSUPPORTED]+/")
+			(require-all
+				(literal "/private/var/")
+				(regex #"^/private/var/mobile/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/euser[0-9]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/[-0-9A-F]+/Containers/Shared/AppGroup/[^/]+/" #"^/private/var/Users/[^/]+/Containers/Shared/AppGroup/[^/]+/")
+				(subpath-prefix "${FRONT_USER_HOME}")))))
+(delegate (with no-report) nvram*)
+(delegate (with no-report) nvram-delete)
+(delegate (with no-report) nvram-get)
+(delegate (with no-report) nvram-set)
+(delegate (with no-report) opendirectory-user-modify)
+(delegate (with no-report) process*)
+(allow process-codesigning)
+(delegate (with no-report) process-exec*)
+(delegate (with no-report) process-exec-interpreter)
+(delegate (with no-report) process-fork)
+(delegate (with no-report) process-info*)
+(allow process-info-codesignature)
+(delegate (with no-report) process-info-dirtycontrol)
+(delegate (with no-report) process-info-ledger)
+(delegate (with no-report) process-info-listpids)
+(delegate (with no-report) process-info-pidinfo)
+(delegate (with no-report) process-info-pidfdinfo)
+(delegate (with no-report) process-info-pidfileportinfo)
+(delegate (with no-report) process-info-rusage)
+(delegate (with no-report) process-info-sandbox-container)
+(delegate (with no-report) process-info-setcontrol)
+(allow process-iopolicy*)
+(allow process-iopolicy-get)
+(allow process-iopolicy-set)
+(delegate (with no-report) process-legacy-codesigning*)
+(delegate (with no-report) process-legacy-codesigning-blob-get)
+(delegate (with no-report) process-legacy-codesigning-cdhash-get)
+(delegate (with no-report) process-legacy-codesigning-entitlements-blob-get)
+(delegate (with no-report) process-legacy-codesigning-entitlements-der-blob-get)
+(delegate (with no-report) process-legacy-codesigning-identity-get)
+(delegate (with no-report) process-legacy-codesigning-status*)
+(delegate (with no-report) process-legacy-codesigning-status-get)
+(delegate (with no-report) process-legacy-codesigning-status-set)
+(delegate (with no-report) process-legacy-codesigning-teamid-get)
+(delegate (with no-report) process-legacy-codesigning-text-offset-get)
+(delegate (with no-report) pseudo-tty)
+(allow sandbox-check)
+(allow socket-ioctl)
+(delegate (with no-report) socket-option*)
+(allow socket-option-get)
+(allow socket-option-set)
+(delegate (with no-report) syscall*)
+(allow syscall-unix)
+(allow syscall-mach)
+(allow syscall-mig)
+(delegate (with no-report) sysctl*)
+(allow sysctl-read
+	(extension com.apple.shortcuts.access.internet)
+	(sysctl-name "kern.bootsessionuuid"))
+(delegate (with no-report) sysctl-write)
+(delegate (with no-report) system*)
+(delegate (with no-report) system-acct)
+(delegate (with no-report) system-audit)
+(delegate (with no-report) system-automount)
+(delegate (with no-report) system-debug)
+(allow system-fcntl)
+(allow system-fsctl
+	(fsctl-command-regex [UNSUPPORTED](_IO "J" 72))
+	(fsctl-command-regex [UNSUPPORTED](_IO "J" 93))
+	(fsctl-command-regex [UNSUPPORTED](_IO "h" 32))
+	(fsctl-command-regex [UNSUPPORTED](_IO "h" 31))
+	(fsctl-command-regex [UNSUPPORTED](_IO "J" 3))
+	(require-all
+		(fsctl-command-regex [UNSUPPORTED](_IO "J" 32))
+		(extension com.apple.shortcuts.access.internet)))
+(delegate (with no-report) system-info)
+(deny system-kas-info)
+(delegate (with no-report) system-kext*)
+(delegate (with no-report) system-kext-load)
+(delegate (with no-report) system-kext-unload)
+(delegate (with no-report) system-kext-query)
+(delegate (with no-report) system-mac*)
+(delegate (with no-report) system-mac-label)
+(allow system-mac-syscall)
+(allow system-memorystatus-control)
+(allow system-necp-client-action)
+(delegate (with no-report) system-nfssvc)
+(delegate (with no-report) system-package-check)
+(allow system-privilege)
+(delegate (with no-report) system-reboot)
+(delegate (with no-report) system-sched)
+(delegate (with no-report) system-set-time)
+(allow system-socket
+	(extension com.apple.shortcuts.access.internet))
+(delegate (with no-report) system-suspend-resume)
+(delegate (with no-report) system-swap)
+(delegate (with no-report) user-preference*)
+(allow user-preference-read
+	(preference-domain "com.apple.Metal")
+	(preference-domain "com.apple.UIKit")
+	(preference-domain "com.apple.assistant.support")
+	(preference-domain "com.apple.AppSupport")
+	(preference-domain "com.apple.iokit.IOMobileGraphicsFamily")
+	(preference-domain "com.apple.siri.shortcuts")
+	(preference-domain "com.apple.logging")
+	(preference-domain "com.apple.shortcuts")
+	(preference-domain "com.apple.coremedia")
+	(preference-domain "com.apple.CloudKit")
+	(preference-domain "com.apple.coreaudio")
+	(preference-domain "com.apple.mobilenotes")
+	(preference-domain "com.apple.assistant.backedup")
+	(preference-domain "com.apple.mobileipod")
+	(preference-domain "com.apple.SiriViewService")
+	(preference-domain "com.apple.mediaremote")
+	(preference-domain "com.apple.SpeakSelection")
+	(preference-domain "com.apple.demo-settings")
+	(preference-domain "com.apple.avfoundation")
+	(preference-domain "com.apple.weather.internal")
+	(preference-domain "com.apple.mobileslideshow")
+	(preference-domain "com.apple.opengl")
+	(preference-domain "com.apple.voiceservices")
+	(preference-domain "com.apple.iclouddrive.features")
+	(preference-domain "com.apple.NanoRegistry")
+	(preference-domain "com.apple.ids")
+	(preference-domain "com.apple.keyboard.preferences")
+	(preference-domain "com.apple.assistant")
+	(preference-domain "com.apple.WorkflowKit.BackgroundShortcutRunner")
+	(preference-domain "com.apple.conference")
+	(preference-domain "com.apple.pairedsync")
+	(preference-domain "com.apple.MobileAsset")
+	(preference-domain "com.apple.marco")
+	(preference-domain "com.apple.corevideo")
+	(preference-domain "com.apple.GEO")
+	(require-all
+		(extension com.apple.shortcuts.access.contacts)
+		(require-any
+			(preference-domain "com.apple.DataMigration")
+			(preference-domain "com.apple.icloud.findmydeviced.postwipe")
+			(preference-domain "com.apple.icloud.findmydeviced.public.notbackedup")
+			(preference-domain "com.apple.AOSNotification.public.notbackedup")
+			(preference-domain "com.apple.PeoplePicker")
+			(require-all
+				(preference-domain "com.apple.CoreDuet")
+				(process-attribute is-apple-signed-executable))))
+	(require-all
+		(preference-domain "com.apple.camera")
+		(extension com.apple.shortcuts.access.photos))
+	(require-all
+		(extension com.apple.shortcuts.access.location)
+		(require-any
+			(preference-domain "com.apple.locationd")
+			(preference-domain "com.apple.AppSupport")
+			(preference-domain "com.apple.GEO")
+			(preference-domain "com.apple.itunesstored")
+			(require-all
+				(preference-domain "com.apple.carrier")
+				(extension com.apple.shortcuts.access.location))
+			(require-all
+				(preference-domain "com.apple.CFNetwork")
+				(extension com.apple.shortcuts.access.internet))
+			(require-all
+				(extension com.apple.shortcuts.access.calendar)
+				(require-any
+					(preference-domain "com.apple.mobilecal.alarmengine")
+					(preference-domain "com.apple.mobilecal")))))
+	(require-all
+		(preference-domain "com.apple.nanoprefsyncd")
+		(extension com.apple.shortcuts.access.photos))
+	(require-all
+		(preference-domain "com.apple.medialibrary")
+		(extension com.apple.shortcuts.access.music-library))
+	(require-all
+		(preference-domain "com.apple.homesharing")
+		(extension com.apple.shortcuts.access.music-library)))
+(allow user-preference-write
+	(preference-domain "com.apple.siri.shortcuts")
+	(preference-domain "com.apple.shortcuts")
+	(preference-domain "com.apple.SiriViewService")
+	(preference-domain "com.apple.WorkflowKit.BackgroundShortcutRunner"))
+(deny storage-class-map)
+(allow process-exec-update-label)
