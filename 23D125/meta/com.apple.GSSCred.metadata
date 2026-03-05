@@ -1,0 +1,12 @@
+base_profile: baseline
+
+states_flag: 0x8
+
+policies:
+	['blastdoor-post-launch', 'blastdoor-hubble', 'local:FeatureCoreMLDisabled', 'local:tested_version_2.0', 'BlockNetworkAccess', 'local:WebContentProcessLaunched', 'ParentProcessCanEnableQuickLookStateFlag', 'EnableQuickLookSandboxResources', 'autobox-client', 'common-rules', 'common-syscall-rules', 'common-apple-internal-rules', 'common-apple-signed-executable-rules', 'common-mach-lookups', 'common-sysctl-rules', 'common-pluginkit-support', 'generic-sandbox-extension-support', 'common-debugging-rules', 'common-device-access', 'common-preferences-rules', 'common-mobilegestalt-rules', 'common-containermanagerd-rules', 'common-system-logging-rules', 'common-managed-configuration-read-rules', 'common-exception-entitlement-rules', 'autobox-client-no-exception-entitlements', 'threatening-syscall-unix-policy-enforcement', 'strict-syscall-unix-policy-enforcement', 'disable-enforcement', 'hide-launchd', 'strict-syscall-mach-policy-enforcement', 'restrictive-extension', 'deny-lsopen', 'neuter-syscall-unix-policy-enforcement', 'neuter-syscall-mach-policy-enforcement', 'temporary-sandbox-warning', 'telemetry-for-transitd']
+
+states:
+	['blastdoor-post-launch', 'blastdoor-hubble', 'local:FeatureCoreMLDisabled', 'local:tested_version_2.0', 'BlockNetworkAccess', 'local:WebContentProcessLaunched', 'ParentProcessCanEnableQuickLookStateFlag', 'EnableQuickLookSandboxResources']
+
+states_high_bit:
+	['autobox-client', 'common-rules', 'common-syscall-rules', 'common-apple-internal-rules', 'common-apple-signed-executable-rules', 'common-mach-lookups', 'common-sysctl-rules', 'common-pluginkit-support', 'generic-sandbox-extension-support', 'common-debugging-rules', 'common-device-access', 'common-preferences-rules', 'common-mobilegestalt-rules', 'common-containermanagerd-rules', 'common-system-logging-rules', 'common-managed-configuration-read-rules', 'common-exception-entitlement-rules', 'autobox-client-no-exception-entitlements', 'threatening-syscall-unix-policy-enforcement', 'strict-syscall-unix-policy-enforcement', 'disable-enforcement', 'hide-launchd', 'strict-syscall-mach-policy-enforcement', 'restrictive-extension', 'deny-lsopen', 'neuter-syscall-unix-policy-enforcement', 'neuter-syscall-mach-policy-enforcement', 'temporary-sandbox-warning', 'telemetry-for-transitd']
